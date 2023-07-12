@@ -83,6 +83,7 @@
 	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
 	<link rel="stylesheet" type="text/css" href="assets/vendor/choices/css/choices.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/vendor/flatpickr/css/flatpickr.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 
 	<!-- Theme CSS -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -107,8 +108,8 @@
 		<div class="container">
 			<!-- Logo START -->
 			<a class="navbar-brand" href="index-flight.html">
-				<img class="light-mode-item navbar-brand-item" src="assets/images/smallyfares.png"  alt="logo">
-				<img class="dark-mode-item navbar-brand-item" src="assets/images/smallyfares.png" alt="logo">
+				<img class="light-mode-item navbar-brand-item" src="assets/images/smally.png"  alt="logo">
+				<img class="dark-mode-item navbar-brand-item" src="assets/images/smally.png" alt="logo">
 			</a>
 			<!-- Logo END -->
 			
@@ -134,7 +135,7 @@
 	
 							<!-- Hotels -->
 							<li class="mb-1">
-								<a href="index-2.html" class="dropdown-item bg-light-hover d-flex align-items-center rounded p-2">
+								<a href="index-hotel.html" class="dropdown-item bg-light-hover d-flex align-items-center rounded p-2">
 									<!-- Icon -->
 									<div class="icon-md bg-primary bg-opacity-10 rounded text-primary flex-shrink-0"><i class="fa-solid fa-hotel"></i></div>
 									<div class="ms-2">
@@ -383,11 +384,8 @@ Main Banner START -->
                   <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
                     <!-- Input field -->
                     <label class="mb-1"><i class="bi bi-geo-alt me-2"></i>From</label>
-                    <select class="form-select js-choice" data-search-enabled="true">
+                    <select class="form-control search" id="search_frm">
                       <option value="">Select location</option>
-                      <option>San Jacinto, USA</option>
-                      <option>North Dakota, Canada</option>
-                      <option>West Virginia, Paris</option>
                     </select>
                   </div>
 
@@ -402,11 +400,8 @@ Main Banner START -->
                   <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
                     <!-- Input field -->
                     <label class="mb-1"><i class="bi bi-send me-2"></i>To</label>
-                    <select class="form-select js-choice" data-search-enabled="true">
+                    <select class="form-control search" data-search-enabled="true">
                       <option value="">Select location</option>
-                      <option>San Jacinto, USA</option>
-                      <option>North Dakota, Canada</option>
-                      <option>West Virginia, Paris</option>
                     </select>
                   </div>
                 </div>
@@ -435,11 +430,8 @@ Main Banner START -->
                   <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
                     <!-- Input field -->
                     <label class="mb-1"><i class="bi bi-geo-alt me-2"></i>From</label>
-                    <select class="form-select js-choice" data-search-enabled="true">
+                    <select class="form-select js-choice" id= data-search-enabled="true">
                       <option value="">Select location</option>
-                      <option>San Jacinto, USA</option>
-                      <option>North Dakota, Canada</option>
-                      <option>West Virginia, Paris</option>
                     </select>
                   </div>
                   
@@ -454,11 +446,8 @@ Main Banner START -->
                   <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
                     <!-- Input field -->
                     <label class="mb-1"><i class="bi bi-send me-2"></i>To</label>
-                    <select class="form-select js-choice" data-search-enabled="true">
+                    <select class="form-control search">
                       <option value="">Select location</option>
-                      <option>San Jacinto, USA</option>
-                      <option>North Dakota, Canada</option>
-                      <option>West Virginia, Paris</option>
                     </select>
                   </div>
                 </div>
@@ -498,11 +487,8 @@ Main Banner START -->
 					  <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
 						<!-- Input field -->
 						<label class="mb-1"><i class="bi bi-geo-alt me-2"></i>From</label>
-						<select class="form-select js-choice" data-search-enabled="true">
+						<select class="form-select search" >
 						  <option value="">Select location</option>
-						  <option>San Jacinto, USA</option>
-						  <option>North Dakota, Canada</option>
-						  <option>West Virginia, Paris</option>
 						</select>
 					  </div>
 					</div>
@@ -512,11 +498,8 @@ Main Banner START -->
 					  <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
 						<!-- Input field -->
 						<label class="mb-1"><i class="bi bi-send me-2"></i>To</label>
-						<select class="form-select js-choice" data-search-enabled="true">
+						<select class="form-select search" >
 						  <option value="">Select location</option>
-						  <option>San Jacinto, USA</option>
-						  <option>North Dakota, Canada</option>
-						  <option>West Virginia, Paris</option>
 						</select>
 					  </div>
 					</div>
@@ -564,80 +547,75 @@ Special offer START -->
 <section>
 	<div class="container">
 
-		<!-- Title -->
-		<div class="row mb-4">
-			<div class="col-12">
-				<h4 class="mb-0">Special Offers</h4>
-			</div>
-		</div>
-
-		<div class="row g-4">
-			<!-- Card item -->
-			<div class="col-sm-6 col-lg-4 col-xl-3">
-				<div class="card bg-success bg-opacity-10 h-100 p-4">
-					<!-- Image -->
-					<img src="assets/images/client/07.svg" class="w-75" alt="">
-					<!-- Card body START -->
-					<div class="card-body mt-4 p-0">
-						<span class="mb-1">Flat</span>
-						<h4 class="mb-1">$899 off</h4>
-						<h6 class="fw-normal">On Domestic Flights</h6>
-
-						<div class="d-flex justify-content-between align-items-center mt-4">
-							<div class="bg-primary bg-opacity-10 border border-2 border-primary border-dashed rounded-2 px-3 py-2">
-							 <h5 class="fw-normal user-select-all mb-0">LOG125F</h5>
-							</div>
-							 <a href="#" class="btn btn-lg btn-white btn-round mb-0"><i class="bi bi-arrow-right"></i></a>
-						</div>
-					</div>
-					<!-- Card body END -->
-				</div>
+		<!-- Recent Search START -->
+		<div class="row g-2 mt-6">
+			<!-- Title -->
+			<div class="col-lg-2">
+				<h4 class="mb-0">Recent Searches</h4>
 			</div>
 
-			<!-- Card item -->
-			<div class="col-sm-6 col-lg-4 col-xl-3">
-				<div class="card bg-danger bg-opacity-10 h-100 p-4">
-					<!-- Image -->
-					<img src="assets/images/client/08.svg" class="w-75" alt="">
-					<!-- Card body START -->
-					<div class="card-body mt-4 p-0">
-						<span class="mb-1">Flat</span>
-						<h4 class="mb-1">13% off</h4>
-						<h6 class="fw-normal">On Domestic Flights</h6>
-
-						<div class="d-flex justify-content-between align-items-center mt-4">
-							<div class="bg-primary bg-opacity-10 border border-2 border-primary border-dashed rounded-2 px-3 py-2">
-							 <h5 class="fw-normal user-select-all mb-0">LOG125F</h5>
-							</div>
-							 <a href="#" class="btn btn-lg btn-white btn-round mb-0"><i class="bi bi-arrow-right"></i></a>
-						</div>
+			<div class="col-lg-10">
+				<div class="hstack flex-wrap gap-3">
+					<!-- Search item -->			
+					<div class="alert bg-light fade show small px-3 py-1 mb-0" role="alert">
+						<span class="me-1">Taman Sari</span>
+						<button type="button" class="btn-close small p-2" data-bs-dismiss="alert" aria-label="Close"></button>
 					</div>
-					<!-- Card body END -->
-				</div>
-			</div>
 
-			<!-- Card item -->
-			<div class="col-sm-6 col-lg-4 col-xl-3">
-				<div class="card bg-info bg-opacity-10 h-100 p-4">
-					<!-- Image -->
-					<img src="assets/images/client/09.svg" class="w-75" alt="">
-					<!-- Card body START -->
-					<div class="card-body mt-4 p-0">
-						<span class="mb-1">Flat</span>
-						<h4 class="mb-1">$2,400 off</h4>
-						<h6 class="fw-normal">On International Flights</h6>
-
-						<div class="d-flex justify-content-between align-items-center mt-4">
-							<div class="bg-primary bg-opacity-10 border border-2 border-primary border-dashed rounded-2 px-3 py-2">
-							 <h5 class="fw-normal user-select-all mb-0">LOG125F</h5>
-							</div>
-							 <a href="#" class="btn btn-lg btn-white btn-round mb-0"><i class="bi bi-arrow-right"></i></a>
-						</div>
+					<!-- Search item -->			
+					<div class="alert bg-light fade show small px-3 py-1 mb-0" role="alert">
+						<span class="me-1">The Grand Palace</span>
+						<button type="button" class="btn-close small p-2" data-bs-dismiss="alert" aria-label="Close"></button>
 					</div>
-					<!-- Card body END -->
+
+					<!-- Search item -->			
+					<div class="alert bg-light fade show small px-3 py-1 mb-0" role="alert">
+						<span class="me-1">Glacier National Park</span>
+						<button type="button" class="btn-close small p-2" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+
+					<!-- Search item -->			
+					<div class="alert bg-light fade show small px-3 py-1 mb-0" role="alert">
+						<span class="me-1">Machu Picchu</span>
+						<button type="button" class="btn-close small p-2" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+
+					<!-- Search item -->			
+					<div class="alert bg-light fade show small px-3 py-1 mb-0" role="alert">
+						<span class="me-1">Prambanan Temple</span>
+						<button type="button" class="btn-close small p-2" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+					
+					<!-- Search item -->			
+					<div class="alert bg-light fade show small px-3 py-1 mb-0" role="alert">
+						<span class="me-1">Batu Gong</span>
+						<button type="button" class="btn-close small p-2" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+
+					<!-- Search item -->			
+					<div class="alert bg-light fade show small px-3 py-1 mb-0" role="alert">
+						<span class="me-1">Barobadur Temple</span>
+						<button type="button" class="btn-close small p-2" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+
+					<!-- Search item -->			
+					<div class="alert bg-light fade show small px-3 py-1 mb-0" role="alert">
+						<span class="me-1">Great Barrier Reef</span>
+						<button type="button" class="btn-close small p-2" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+
+					<!-- Search item -->			
+					<div class="alert bg-light fade show small px-3 py-1 mb-0" role="alert">
+						<span class="me-1">Argentine Patagonia</span>
+						<button type="button" class="btn-close small p-2" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+
+					<!-- Search item -->			
+					<button type="button" class="btn btn-sm btn-primary-soft mb-0"> Clear all</button>
 				</div>
 			</div>
 		</div>
+		<!-- Recent Search END -->
 	</div>
 </section>
 <!-- =======================
@@ -809,7 +787,7 @@ Steps START -->
 
 					<!-- Title -->
 					<h5>Select Destination</h5>
-					<p class="mb-0">Insipidity the sufficient discretion imprudence</p>
+					<p class="mb-0"> </p>
 				</div>
 			</div>
 		
@@ -850,11 +828,11 @@ Action box START -->
 						<h3>It's time to discover</h3>
 						<img src="assets/images/element/04.svg" class="h-40px ms-3" alt="">
 					</div>
-					<p class="mb-3 mb-lg-0">He moonlights difficult engrossed it, sportsmen. Interested has all Devonshire difficulty gay assistance joy.</p>
+					<p class="mb-3 mb-lg-0"> </p>
 				</div>
 				<!-- Content and input -->
 				<div class="col-lg-4 text-lg-end">
-					<a href="flight-list.html" class="btn btn-lg btn-dark mb-0">Book a Flight</a>
+					<a href="#" class="btn btn-lg btn-dark mb-0">Book a Flight</a>
 				</div>
 			</div> <!-- Row END -->
 		</div>
@@ -964,7 +942,7 @@ Footer START -->
 			<div class="col-lg-3">
 				<!-- logo -->
 				<a href="index-flight.html">
-					<img class="h-80px" src="assets/images/smallyfares.png" alt="logo">
+					<img class="h-40px" src="assets/images/smallywhite.png" alt="logo">
 				</a>
 				<p class="my-3 text-muted">Cheap Prices, Premium Services.</p>
 				<p class="mb-2"><a href="#" class="text-muted text-primary-hover"><i class="bi bi-telephone me-2"></i>+(234) 704 904 3727</a> </p>
@@ -1017,8 +995,7 @@ Footer START -->
 						<ul class="nav flex-column text-primary-hover">
 							<li class="nav-item"><a class="nav-link text-muted" href="#"><i class="fa-solid fa-hotel me-2"></i>Hotel</a></li>
 							<li class="nav-item"><a class="nav-link text-muted" href="#"><i class="fa-solid fa-plane me-2"></i>Flight</a></li>
-							<li class="nav-item"><a class="nav-link text-muted" href="#"><i class="fa-solid fa-globe-americas me-2"></i>Tour</a></li>
-							<li class="nav-item"><a class="nav-link text-muted" href="#"><i class="fa-solid fa-car me-2"></i>Cabs</a></li>
+							<li class="nav-item"><a class="nav-link text-muted" href="#"><i class="fa-solid fa-car me-2"></i>Cars</a></li>
 						</ul>
 					</div>
 				</div>
@@ -1153,9 +1130,12 @@ Footer END -->
 
 <!-- ThemeFunctions -->
 <script src="assets/js/functions.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 <script>
 $(document).ready(function(){
-var max_fields = 4; //maximum input boxes allowed
+var max_fields = 5; //maximum input boxes allowed
 var wrapper = $(".input_fields_wrap"); //Fields wrapper
 var add_button = $(".add_field_button"); //Add button ID
 var x = 1; //initlal text box count
@@ -1170,6 +1150,28 @@ $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
 	e.preventDefault(); $(this).parent('div').remove(); x--;
 })
 });
+
+
+  $('.search').select2({
+  ajax: {
+    url: 'assets/json/airports.json',
+     processResults: function (data) {
+		var arr = []
+		$.each(data, function (index, value) {
+			arr.push({
+				id: value.icao,
+				text: value.name+', '+value.city+', '+value.state+', '+value.country
+			})
+		})
+		return {
+			results: arr
+		};
+	},
+	cache: true
+  }
+})
+
+// via an array of objects
 </script>
 
 </body>
