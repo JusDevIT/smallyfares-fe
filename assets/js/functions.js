@@ -114,6 +114,7 @@ var e = {
         e.overlayScrollbars(),
         e.trafficsplineChart(),
         e.trafficroomChart();
+		e.populateSelect();
         
     },
     isVariableDefined: function (el) {
@@ -824,210 +825,130 @@ var e = {
     },
     // END: Auto tab input
 
-    // START: 22 Adult Selector
+    // START: 22 Guest Selector
     guestSelector: function () {
-      if (e.isVariableDefined(e.select('.guest-selector'))) {
-
-      let adult = 0;
-      let child = 0;
-      let infant =0;
-      let totalAdults = 0;
+	
+      if (e.isVariableDefined(e.select('.guest-selector'))){
+	
+		//let adult = 0;
+		let child = new Array(0,0,0);
+		let infant = new Array(0,0,0);
+		let totalAdults = new Array(0,0,0);
+		let adult = new Array(0,0,0);
+		let adultText = new Array("", "", "");
+        let childText = new Array("", "", "");
+        let infantText = new Array("", "", "");
+		var resultText = new Array("", "", "");
+      //let selectionResult = document.querySelectorAll('.selection-result, .selection-result1, .selection-result2');
+	  
+	  let selectionResult = new Array('.selection-result', '.selection-result1', '.selection-result2');
     
-      let selectionResult = document.querySelector('.selection-result');
+      let adultValue = new Array('.adult0', '.adult1', '.adult2');
+      let adultAdd = document.querySelectorAll('.adult-add, .adult-add1, .adult-add2');
+      let adultRemove = document.querySelectorAll('.adult-remove, .adult-remove1, .adult-remove2');
     
-      let adultValue = document.querySelector('.adult');
-      let adultAdd = document.querySelector('.adult-add');
-      let adultRemove = document.querySelector('.adult-remove');
+      let childValue = new Array('.child0', '.child1', '.child2');
+      let childAdd = document.querySelectorAll('.child-add, .child-add1, .child-add2');
+      let childRemove = document.querySelectorAll('.child-remove, .child-remove1, .child-remove2');
     
-      let childValue = document.querySelector('.child');
-      let childAdd = document.querySelector('.child-add');
-      let childRemove = document.querySelector('.child-remove');
+      let infantValue = new Array('.infant0', '.infant1', '.infant2');
+      let infantAdd = document.querySelectorAll('.infant-add, .infant-add1, .infant-add2');
+      let infantRemove = document.querySelectorAll('.infant-remove, .infant-remove1, .infant-remove2');
     
-      let infantValue = document.querySelector('.infant');
-      let infantAdd = document.querySelector('.infant-add');
-      let infantRemove = document.querySelector('.infant-remove');
+      function addElement(type, num){
+        if(type == 'adult'+num){
+          adult[num] = adult[num] + 1;
+          totalAdults[num] = adult[num] + child[num] + infant[num];
+          showElements(num);
+        }else if(type == 'child'+num){
+          child[num] = child[num] + 1;
+          totalAdults[num] = adult[num] + child[num] + infant[num];
     
-      function addElement(type){
-        if(type == 'adult'){
-          adult = adult + 1;
-          totalAdults = adult + child + infant;
-    
-          showElements();
-        }else if(type == 'child'){
-          child = child + 1;
-          totalAdults = adult + child + infant;
-    
-          showElements();
-        }else if(type == 'infant'){
-          infant = infant + 1;
-          totalAdults = adult + child + infant;
+          showElements(num);
+        }else if(type == 'infant'+num){
+          infant[num] = infant[num] + 1;
+          totalAdults[num] = adult[num] + child[num] + infant[num];
 		  
-		  showElements();
+		  showElements(num);
         }
       }
     
-      function showElements(){
-        adultValue.innerText = adult;
-        childValue.innerText = child;
-        infantValue.innerText = infant;
+      function showElements(num){
+        document.querySelector(adultValue[num]).innerText = adult[num];
+        document.querySelector(childValue[num]).innerText = child[num];
+        document.querySelector(infantValue[num]).innerText = infant[num];
     
-        let adultText = adult > 1 ? 'Adult' : 'Adults';
-        let childText = child > 1 ? 'children': 'child';
-        let infantText = infant > 1 ? 'infants': 'infant';
-		var resultText = "";
-		if(infant > 0){
-			resultText = adult+' '+adultText+' '+child+' '+childText+' '+infant+' '+infantText;  
+        adultText[num] = adult[num] > 1 ? 'Adults' : 'Adult';
+        childText[num] = child[num] > 1 ? 'children': 'child';
+        infantText[num] = infant[num] > 1 ? 'infants': 'infant';
+		//var resultText = "";
+		if(infant[num] > 0){
+			resultText[num] = adult[num]+' '+adultText[num]+' '+child[num]+' '+childText[num]+' '+infant[num]+' '+infantText[num];  
 		}else{
-			resultText = adult+' '+adultText+' '+child+' '+childText;  
+			resultText[num] = adult[num]+' '+adultText[num]+' '+child[num]+' '+childText[num];  
 		}
         
-    
-        selectionResult.setAttribute('value', resultText);
+		console.log(selectionResult[num]);
+		document.querySelector(selectionResult[num]).setAttribute('value', resultText[num]);
+		
       }
     
-      function removeElement(type){
-        if(type == 'adult'){
-          adult = adult > 0 ?  adult - 1 : adult;
-          totalAdults = adult + child + infant;
+      function removeElement(type, num){
+        if(type == 'adult'+num){
+          adult[num] = adult[num] > 1 ?  adult[num] - 1 : adult[num];
+          totalAdults[num] = adult[num] + child[num] + infant[num];
     
-          showElements();
-        }else if(type == 'child'){
-          child = child > 0 ? child - 1 : child;
-          totalAdults = adult + child + infant;
+          showElements(num);
+        }else if(type == 'child'+num){
+          child[num] = child[num] > 0 ? child[num] - 1 : child[num];
+          totalAdults[num] = adult[num] + child[num] + infant[num];
     
-          showElements();
-        }else if(type == 'infant'){
-          infant = infant > 0 ? infant - 1 : infant;
-          totalAdults = adult + child + infant;
+          showElements(num);
+        }else if(type == 'infant'+num){
+          infant[num] = infant[num] > 0 ? infant[num] - 1 : infant[num];
+          totalAdults[num] = adult[num] + child[num] + infant[num];
           
-          showElements();
+          showElements(num);
         }
       }
+	  
+		for (var i=0, iLen=adultAdd.length; i<iLen; i++) {
+			//console.log(adultAdd[i]);
+			adultAdd[i].addEventListener('click',function(){
+				addElement('adult'+ this.id, this.id);
+				console.log()
+			});
+		}
+		
+		for (var i=0, iLen=adultRemove.length; i<iLen; i++) {
+			adultRemove[i].addEventListener('click',function(){
+				removeElement('adult'+ this.id, this.id);
+			});
+		}
+		
+		for (var i=0, iLen=childAdd.length; i<iLen; i++) {
+			childAdd[i].addEventListener('click',function(){
+				addElement('child'+ this.id, this.id);
+		});
+		}
+		
+		for (var i=0, iLen=childRemove.length; i<iLen; i++) {
+			childRemove[i].addEventListener('click',function(){
+				removeElement('child'+ this.id, this.id);
+			});
+		}
     
-      adultAdd.addEventListener('click',function(){
-        addElement('adult');
-      });
+		for (var i=0, iLen=infantAdd.length; i<iLen; i++) {
+			infantAdd[i].addEventListener('click',function(){
+				addElement('infant'+ this.id, this.id);
+			});
+		}
     
-      adultRemove.addEventListener('click',function(){
-        removeElement('adult');
-      });
-    
-      childAdd.addEventListener('click',function(){
-        addElement('child');
-      });
-    
-      childRemove.addEventListener('click',function(){
-        removeElement('child');
-      });
-    
-      infantAdd.addEventListener('click',function(){
-        addElement('infant');
-      });
-    
-      infantRemove.addEventListener('click',function(){
-        removeElement('infant');
-      });
-      }
-    },
-     // END: Adult Selector
-	 
-	 
-	  // START: 22 Guest Selector
-    guestSelector: function () {
-      if (e.isVariableDefined(e.select('.guest-selector'))) {
-
-      let adults = 2;
-      let child = 0;
-      let rooms =1;
-      let totalAdults = 2;
-    
-      let selectionResult = document.querySelector('.selection-result');
-    
-      let adultValue = document.querySelector('.adults');
-      let adultAdd = document.querySelector('.adult-add');
-      let adultRemove = document.querySelector('.adult-remove');
-    
-      let childValue = document.querySelector('.child');
-      let childAdd = document.querySelector('.child-add');
-      let childRemove = document.querySelector('.child-remove');
-    
-      let roomValue = document.querySelector('.rooms');
-      let roomAdd = document.querySelector('.room-add');
-      let roomRemove = document.querySelector('.room-remove');
-    
-      function addElement(type){
-        if(type == 'adult'){
-          adults++;
-          totalAdults = adults + child;
-    
-          showElements();
-        }else if(type == 'child'){
-          child = child + 1;
-          console.log(child);
-          totalAdults = adults + child;
-    
-          showElements();
-        }else if(type == 'room'){
-          rooms++;
-          
-          showElements();
-        }
-      }
-    
-      function showElements(){
-        adultValue.innerText = adults;
-        childValue.innerText = child;
-        roomValue.innerText = rooms;
-    
-        let roomText = rooms > 1 ? 'Rooms' : 'Room';
-        let guestText = totalAdults > 1 ? 'Guests': 'Guest';
-    
-        let resultText = totalAdults+' '+guestText+' '+rooms+' '+roomText;
-    
-        selectionResult.setAttribute('value', resultText);
-      }
-    
-      function removeElement(type){
-        if(type == 'adult'){
-          adults = adults > 0 ?  adults - 1 : adults;
-          totalAdults = adults + child;
-    
-          showElements();
-        }else if(type == 'child'){
-          child = child > 0 ? child - 1 : child;
-          totalAdults = adults + child;
-    
-          showElements();
-        }else if(type == 'room'){
-          rooms = rooms > 0 ? rooms - 1 : rooms;
-          
-          showElements();
-        }
-      }
-    
-      adultAdd.addEventListener('click',function(){
-        addElement('adult');
-      });
-    
-      adultRemove.addEventListener('click',function(){
-        removeElement('adult');
-      });
-    
-      childAdd.addEventListener('click',function(){
-        addElement('child');
-      });
-    
-      childRemove.addEventListener('click',function(){
-        removeElement('child');
-      });
-    
-      roomAdd.addEventListener('click',function(){
-        addElement('room');
-      });
-    
-      roomRemove.addEventListener('click',function(){
-        removeElement('room');
-      });
+		for (var i=0, iLen=infantRemove.length; i<iLen; i++) {
+		  infantRemove[i].addEventListener('click',function(){
+			removeElement('infant'+ this.id, this.id);
+		  });
+		}
       }
     },
      // END: Guest Selector
@@ -1253,6 +1174,58 @@ var e = {
       }
     },
     // END: Traffic Chart 4
+	
+	//Populate Select
+	populateSelect : function(){
+		var xhr = new XMLHttpRequest(), 
+            method = 'GET',
+            overrideMimeType = 'application/json',
+            url = 'assets/json/airports.json'; // ADD THE URL OF THE FILE.
+
+        xhr.onreadystatechange = function(){
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+                
+                // PARSE JSON DATA.
+				let ports, a;
+				var f = [];
+                ports = JSON.parse(xhr.responseText);
+				//console.log(birds);
+				let ele = document.querySelectorAll('.search');
+				for (a in ports){
+					f.push(ports[a]);
+				}
+				
+                //let ele = document.getElementById('search_frm');
+				let i, len;
+				len = f.length;
+				var res = [];
+				/*$.map(f, function (item){
+					//console.log(item);
+					var newOption = new Option(item.name+', '+item.city+', '+item.state+', '+item.country,  false, false);	
+				
+				});*/
+				
+				/*for (i in f){
+					res.push({'id': f[i]['name'], 'text': f[i].name+', '+f[i].city+', '+f[i].state+', '+f[i].country});
+				}
+					$('.search').append(res).trigger('change');*/
+							
+				
+                for (i = 0; i < len; i++){
+					console.log(i);
+					var newOption = new Option(f[i].name+', '+f[i].city+', '+f[i].state+', '+f[i].country,  false, false);
+					
+					//res.push({newOption});
+					$('.search').append(newOption).trigger('change');
+                }
+					
+					
+            }
+        };
+        xhr.open(method, url, true);
+        xhr.send(null);
+	}
+	
 
 };
 e.init();
