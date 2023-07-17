@@ -465,6 +465,20 @@ Flight list START -->
 							<h5 class="offcanvas-title" id="offcanvasSidebarLabel">Advance Filters</h5>
 							<button  type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasSidebar" aria-label="Close"></button>
 						</div>
+						
+						
+						<div class="dropdown">
+							  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Price (Cheapest first)
+							  </button>
+							  <ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">Duration (Shortest first)</a></li>
+								<li><a class="dropdown-item" href="#">Depature Outbound (Earliest)</a></li>
+								<li><a class="dropdown-item" href="#">Depature Outbound (Latest)</a></li>
+								<li><a class="dropdown-item" href="#">Arrival Outbound (Earliest)</a></li>
+								<li><a class="dropdown-item" href="#">Arrival Outbound (Latest)</a></li>
+							  </ul>
+							</div>
 
 						<!-- Offcanvas body -->
 						<div class="offcanvas-body flex-column p-3 p-xl-0">
@@ -472,44 +486,62 @@ Flight list START -->
 								<!-- Popular filters START -->
 								<div class="card card-body rounded-0 rounded-top p-4">
 									<!-- Title -->
-									<h6 class="mb-2">Popular Filters</h6>
+									<h6 class="mb-2">Outbound Depature</h6>
 									<!-- Popular filters group -->
 									<div class="col-12">
 										<!-- Checkbox -->
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="form-check">
-												<input class="form-check-input" type="checkbox" id="popolarType1">
-												<label class="form-check-label" for="popolarType1">Refundable Fare</label>
-											</div>
-											<span class="small">(41)</span>
-										</div>	
+									<div class="form-check form-switch">
+									  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+									  <label class="form-check-label" for="flexSwitchCheckDefault">12:00 am - 04:59 am</label>
+									</div>
+									<div class="form-check form-switch">
+									  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+									  <label class="form-check-label" for="flexSwitchCheckChecked">05:00 am - 11:59 am</label>
+									</div>
 										<!-- Checkbox -->
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="form-check">
-												<input class="form-check-input" type="checkbox" id="popolarType2">
-												<label class="form-check-label" for="popolarType2">1 Stop</label>
-											</div>
-											<span class="small">(20)</span>
-										</div>	
+									<div class="form-check form-switch">
+									  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+									  <label class="form-check-label" for="flexSwitchCheckDefault">12:00 pm - 05:59 pm</label>
+									</div>
+									<div class="form-check form-switch">
+									  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+									  <label class="form-check-label" for="flexSwitchCheckChecked">06:00 pm - 11:59 pm</label>
+									</div>
 										<!-- Checkbox -->
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="form-check">
-												<input class="form-check-input" type="checkbox" id="popolarType3">
-												<label class="form-check-label" for="popolarType3">Late Departure</label>
-											</div>
-											<span class="small">(4)</span>
-										</div>
-										<!-- Checkbox -->
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="form-check">
-												<input class="form-check-input" type="checkbox" id="popolarType4">
-												<label class="form-check-label" for="popolarType4">Non-Stop</label>
-											</div>
-											<span class="small">(2)</span>
-										</div>
+										
 									</div>
 								</div>
 								<!-- Popular filters END -->
+								
+								<hr class="my-0"> <!-- Divider -->
+								
+								<div class="card card-body rounded-0 rounded-top p-4">
+									<!-- Title -->
+									<h6 class="mb-2">Outbound Arrival</h6>
+									<!-- Popular filters group -->
+									<div class="col-12">
+										<!-- Checkbox -->
+									<div class="form-check form-switch">
+									  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+									  <label class="form-check-label" for="flexSwitchCheckDefault">12:00 am - 04:59 am</label>
+									</div>
+									<div class="form-check form-switch">
+									  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+									  <label class="form-check-label" for="flexSwitchCheckChecked">05:00 am - 11:59 am</label>
+									</div>
+										<!-- Checkbox -->
+									<div class="form-check form-switch">
+									  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+									  <label class="form-check-label" for="flexSwitchCheckDefault">12:00 pm - 05:59 pm</label>
+									</div>
+									<div class="form-check form-switch">
+									  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+									  <label class="form-check-label" for="flexSwitchCheckChecked">06:00 pm - 11:59 pm</label>
+									</div>
+										<!-- Checkbox -->
+										
+									</div>
+								</div>
 
 								<hr class="my-0"> <!-- Divider -->
 
