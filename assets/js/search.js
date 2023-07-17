@@ -5,9 +5,7 @@ let inputField = document.querySelectorAll('.search');
 
 // lOAD AIRPORT JSON FILE
 const jsonFilePath = 'data/airports.json';
-fetch(jsonFilePath)
-    .then(response => response.json())
-    .then(jsonData => {
+fetch(jsonFilePath).then(response => response.json()).then(jsonData => {
         const newArray = Object.values(jsonData).map(function (data){
             if (data.country == 'NG') data.country = "Nigeria";
             return { code: data.iata, location: `${data.name.toUpperCase()},${data.city.toUpperCase()},${data.state.toUpperCase()},${data.country.toUpperCase()}` };

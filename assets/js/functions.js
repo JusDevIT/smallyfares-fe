@@ -114,7 +114,6 @@ var e = {
         e.overlayScrollbars(),
         e.trafficsplineChart(),
         e.trafficroomChart();
-		e.populateSelect();
         
     },
     isVariableDefined: function (el) {
@@ -1174,58 +1173,6 @@ var e = {
       }
     },
     // END: Traffic Chart 4
-	
-	//Populate Select
-	populateSelect : function(){
-		var xhr = new XMLHttpRequest(), 
-            method = 'GET',
-            overrideMimeType = 'application/json',
-            url = 'assets/json/airports.json'; // ADD THE URL OF THE FILE.
-
-        xhr.onreadystatechange = function(){
-            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
-                
-                // PARSE JSON DATA.
-				let ports, a;
-				var f = [];
-                ports = JSON.parse(xhr.responseText);
-				//console.log(birds);
-				let ele = document.querySelectorAll('.search');
-				for (a in ports){
-					f.push(ports[a]);
-				}
-				
-                //let ele = document.getElementById('search_frm');
-				let i, len;
-				len = f.length;
-				var res = [];
-				/*$.map(f, function (item){
-					//console.log(item);
-					var newOption = new Option(item.name+', '+item.city+', '+item.state+', '+item.country,  false, false);	
-				
-				});*/
-				
-				/*for (i in f){
-					res.push({'id': f[i]['name'], 'text': f[i].name+', '+f[i].city+', '+f[i].state+', '+f[i].country});
-				}
-					$('.search').append(res).trigger('change');*/
-							
-				
-                for (i = 0; i < len; i++){
-					console.log(i);
-					var newOption = new Option(f[i].name+', '+f[i].city+', '+f[i].state+', '+f[i].country,  false, false);
-					
-					//res.push({newOption});
-					$('.search').append(newOption).trigger('change');
-                }
-					
-					
-            }
-        };
-        xhr.open(method, url, true);
-        xhr.send(null);
-	}
-	
 
 };
 e.init();
