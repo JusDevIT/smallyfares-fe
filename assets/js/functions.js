@@ -74,6 +74,13 @@ Table Of Content
     }
 }();
 
+const spinnerWrapperEL = document.querySelector('.spinner-wrapper');
+
+setTimeout(() => {
+	spinnerWrapperEL.style.display = 'none';
+}, 1000);
+
+
 // Get CSS var value
 var ThemeColor = function () {
   return {
