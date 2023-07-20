@@ -1055,7 +1055,7 @@ progress {
 
 .g-4,
 .gy-4 {
-  --bs-gutter-y: 1.6rem;
+  --bs-gutter-y: 0.6rem;
 }
 
 .g-5,
@@ -9836,7 +9836,7 @@ textarea.form-control-lg {
 }
 
 .pt-4 {
-  padding-top: 1.6rem !important;
+  padding-top: 0.6rem !important;
 }
 
 .pt-5 {
@@ -17034,7 +17034,7 @@ textarea.form-control-lg {
   .btn-round-icon {
     position: absolute;
     left: 49%;
-    top: 47%;
+    top: 43%;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
     margin-top: 0.5rem;
@@ -17439,7 +17439,7 @@ a.badge:hover {
 
 .nav-pills .nav-link {
   cursor: pointer;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.5rem;
   color: var(--bs-primary);
   white-space: nowrap;
 }
