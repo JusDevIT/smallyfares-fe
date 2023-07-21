@@ -98,6 +98,7 @@
 </div>
 </div>
 
+
 <!-- Header START -->
 <header class="navbar-light header-sticky">
 	<!-- Logo Nav START -->
@@ -774,7 +775,34 @@ Flight list START -->
 							<button class="btn btn-link p-0 mb-0">Clear all</button>
 							<button class="btn btn-primary mb-0">Filter Result</button>
 						</div>
-	
+						<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            // JavaScript code for checkboxes click event
+            $(document).ready(function() {
+                $(":checkbox").click(function() {
+                    $(":checkbox:checked").each(function() {
+                        $('.' + this.value).hide();
+						console.log (this.value);
+                    });
+                    $(":checkbox:not(:checked)").each(function() {
+                        $('.' + this.value).show();
+                    });
+                });
+            });
+
+            // JavaScript code for switches (switch-like checkboxes) click event
+            $(document).ready(function() {
+                $(":checkbox[role='switch']").click(function() {
+                    var isChecked = $(this).is(":checked");
+                    var targetClass = $(this).attr("id");
+                    if (isChecked) {
+                        $('.' + targetClass).show();
+                    } else {
+                        $('.' + targetClass).hide();
+                    }
+                });
+            });
+        </script>
 					</div>
 				<!-- Responsive offcanvas body END -->
 			</aside>
