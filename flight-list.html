@@ -320,8 +320,13 @@
 Search START -->
 <section class="pt-0">
 	<div class="container">
+	<button class="btn btn-primary d-xl-none mb-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
+						<i class="fas fa-search-plus"></i> Modify Search
+					</button>
+	
 		<div class="row">
 			<div class="col-12">
+			<div class="offcanvas-xl offcanvas-end" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
 				<!-- Booking from START -->
 				<form class="bg-mode border rounded position-relative px-4 pt-4 mb-4 mb-sm-0">
 					<div class="row g-4">
@@ -331,6 +336,12 @@ Search START -->
 								<li class="nav-item" role="presentation">
 									<button class="nav-link rounded-start rounded-0 mb-0 active" id="pills-one-way-tab" data-bs-toggle="pill" data-bs-target="#pills-one-way" type="button" role="tab" aria-selected="true">One Way</button>
 								</li>
+								<li class="nav-item" role="presentation">
+									<button class="nav-link rounded-end rounded-0 mb-0" id="pills-round-trip-tab" data-bs-toggle="pill" data-bs-target="#pills-round-trip" type="button" role="tab" aria-selected="false">Round Trip</button>
+								</li>
+								<li class="nav-item" role="presentation">
+								<button class="nav-link rounded-end rounded-0 mb-0" id="pills-multi-city-tab" data-bs-toggle="pill" data-bs-target="#pills-multi-city" type="button" role="tab" aria-selected="false">Multi City</button>
+							</li>
 							</ul>
 						</div>
 						<!-- Nav tabs END -->
@@ -366,50 +377,165 @@ Search START -->
 					<div class="tab-content mt-4" id="pills-tabContent">
 						<!-- One way tab START -->
 						<div class="tab-pane fade show active" id="pills-one-way" role="tabpanel" aria-labelledby="pills-one-way-tab">
-							<div class="row g-4">
-								<!-- Leaving From -->
-								<div class="col-md-6 col-lg-4 position-relative">
+			<form name="one_way" id="one_way">
+              <div class="row g-4">
+				
+				 <!-- Leaving From -->
+                <div class="col-md-6 col-lg-4 position-relative mb-3">
+                  <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
+                    <!-- Input field -->
+                    <label class="mb-1"><i class="bi bi-geo-alt me-2"></i>From</label>
+                    <select class="form-control search" name="one_way_from">
+                      <option value="">North Dakota, Canada</option>
+                    </select>
+                  </div>
+
+                  <!-- Auto fill button -->
+                  <div class="btn-flip-icon mt-3 mt-md-0">
+                    <button class="btn btn-white shadow btn-round mb-0"><i class="fa-solid fa-right-left"></i></button>
+                  </div>
+                </div>
+
+                <!-- Going To -->
+                <div class="col-md-6 col-lg-4 mb-3">
+                  <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
+                    <!-- Input field -->
+                    <label class="mb-1"><i class="bi bi-send me-2"></i>To</label>
+                    <select class="form-control search" name="one_way_to">
+                      <option value="">San Jancito, USA</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Departure -->
+                <div class="col-lg-4 mb-3">
+                  <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
+                    <label class="mb-1"><i class="bi bi-calendar me-2"></i>Departure</label>
+                    <input type="text" class="form-control flatpickr" data-date-format="d M Y" placeholder="19 August 2023" name="one_way_departure">
+                  </div>
+                </div>
+				
+                <div class="col-12 text-end pt-0">
+                  <button type="submit" class="btn btn-primary mb-3">Modify Search <i class="bi bi-arrow-right ps-3"></i></button>
+                </div>
+				</div>
+				</form>
+              
+            </div>
+			<!-- One way tab END -->
+	
+					<!-- Round way tab END -->
+					<div class="tab-pane fade" id="pills-round-trip" role="tabpanel" aria-labelledby="pills-round-trip-tab">
+						<div class="row g-4">
+
+							<!-- Leaving From -->
+							<div class="col-md-6 col-xl-3 position-relative">
 									<div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
 										<!-- Input field -->
 										<label class="mb-1"><i class="bi bi-geo-alt me-2"></i>From</label>
 										<select class="form-select js-choice" data-search-enabled="true">
-											<option selected>San Jacinto, USA</option>
+											<option value="">Select location</option>
+											<option>San Jacinto, USA</option>
+											<option>North Dakota, Canada</option>
+											<option>West Virginia, Paris</option>
 										</select>
 									</div>
-	
+									
 									<!-- Auto fill button -->
 									<div class="btn-flip-icon mt-3 mt-md-0">
-										<button class="btn btn-white shadow btn-round mb-0"><i class="fa-sharp fa-solid fa-arrow-right"></i></button>
-								 </div>
+										 <button class="btn btn-white shadow btn-round mb-0"><i class="fa-solid fa-right-left"></i></button>
+									</div>
 								</div>
 	
 								<!-- Going To -->
-								<div class="col-md-6 col-lg-4">
+								<div class="col-md-6 col-xl-3">
 									<div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
 										<!-- Input field -->
 										<label class="mb-1"><i class="bi bi-send me-2"></i>To</label>
 										<select class="form-select js-choice" data-search-enabled="true">
+											<option value="">Select location</option>
+											<option>San Jacinto, USA</option>
 											<option>North Dakota, Canada</option>
+											<option>West Virginia, Paris</option>
 										</select>
 									</div>
 								</div>
 	
 								<!-- Departure -->
-								<div class="col-lg-4">
+								<div class="col-md-6 col-xl-3">
 									<div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
 										<label class="mb-1"><i class="bi bi-calendar me-2"></i>Departure</label>
-										<input type="text" class="form-control flatpickr" placeholder="Select date" data-date-format="d M Y" value="19 Nov 2022">
+										<input type="text" class="form-control flatpickr" data-date-format="d M Y" placeholder="Select date">
 									</div>
 								</div>
 	
-								<!-- <div class="col-12 text-end pt-0">
-									<a  class="btn btn-primary mb-n4" href="#">Change Ticket <i class="bi bi-arrow-right ps-3"></i></a>
-								</div> -->
+								<!-- Return -->
+								<div class="col-md-6 col-xl-3">
+									<div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
+										<label class="mb-1"><i class="bi bi-calendar me-2"></i>Return</label>
+										<input type="text" class="form-control flatpickr" data-date-format="d M Y" placeholder="Select date">
+									</div>
+								</div>
+	
+								<div class="col-12 text-end pt-0">
+									<a  class="btn btn-primary mb-n4" href="#">Modify Search <i class="bi bi-arrow-right ps-3"></i></a>
+								</div>
 							</div>
 						</div>
-						<!-- One way tab END -->
-	
-						
+						<!-- Round way tab END -->
+						<!-- Multi-city -->
+			 <div class="tab-pane fade" id="pills-multi-city" role="tabpanel" aria-labelledby="pills-multi-city-tab">
+                <!-- Leaving From -->
+				
+                <div class="input_fields_wrap">
+				<form name="multi_city" id="multi_city">
+					<div class="row g-4">
+					<!-- Leaving From -->
+					<div class="col-md-4 col-lg-4 position-relative">
+					  <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
+						<!-- Input field -->
+						<label class="mb-1"><i class="bi bi-geo-alt me-2"></i>From</label>
+						<select class="form-control search multi_city_input" name="multi_city_from[]">
+						  <option value="">Select location</option>
+						</select>
+					  </div>
+					</div>
+
+					<!-- Going To -->
+					<div class="col-md-4 col-lg-4">
+					  <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
+						<!-- Input field -->
+						<label class="mb-1"><i class="bi bi-send me-2"></i>To</label>
+						<select class="form-control search multi_city_input" name="multi_city_to[]">
+						  <option value="">Select location</option>
+						</select>
+					  </div>
+					</div>
+
+					<!-- Departure -->
+					<div class="col-lg-4">
+					  <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
+						<label class="mb-1"><i class="bi bi-calendar me-2"></i>Departure</label>
+						<input type="text" class="form-control flatpickr multi_city_input" data-date-format="d M Y" placeholder="Select date" name="multi_city_departure[]">
+					  </div>
+					</div>
+					
+				  </div>
+				  
+			</div>
+				
+				<div class="row py-2">
+					<div class="col-6">
+						<a class="btn btn-dark add_field_button" href="#">Add another flight <i class="fas fa-plus ms-2"></i></a>
+					</div>
+
+					<div class="col-6 text-end">
+						<button type="submit" class="btn btn-primary mb-n4">Modify Search <i class="bi bi-arrow-right ps-3"></i></button>
+					</div>
+				</div>
+				</form>
+			  
+				</div>
 					</div>
 					<!-- Tab content END -->
 				</form>
@@ -450,7 +576,7 @@ Title and notice board START -->
 
 		<!-- Notice board START -->
 		
-		<!-- Notice board END -->
+	
 
 	</div>
 </section>
@@ -472,26 +598,25 @@ Flight list START -->
 							<h5 class="offcanvas-title" id="offcanvasSidebarLabel">Advance Filters</h5>
 							<button  type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasSidebar" aria-label="Close"></button>
 						</div>
-						
-						
-						<div class="dropdown">
+						,
+							<!-- <div class="dropdown ms-3 w-100">
 							  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Price (Cheapest first)
 							  </button>
 							  <ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#">Duration (Shortest first)</a></li>
-								<li><a class="dropdown-item" href="#">Depature Outbound (Earliest)</a></li>
-								<li><a class="dropdown-item" href="#">Depature Outbound (Latest)</a></li>
-								<li><a class="dropdown-item" href="#">Arrival Outbound (Earliest)</a></li>
-								<li><a class="dropdown-item" href="#">Arrival Outbound (Latest)</a></li>
+								<li><a class="dropdown-item filter_link" data-filter="shortest" href="#">Duration (Shortest first)</a></li>
+								<li><a class="dropdown-item filter_link" data-filter="departure outbound earliest" href="#">Depature Outbound (Earliest)</a></li>
+								<li><a class="dropdown-item filter_link" data-filter="departure outbound latest" href="#">Depature Outbound (Latest)</a></li>
+								<li><a class="dropdown-item filter_link" data-filter="arrival outbound earliest" href="#">Arrival Outbound (Earliest)</a></li>
+								<li><a class="dropdown-item filter_link" data-filter="arrival outbound latest" href="#">Arrival Outbound (Latest)</a></li>
 							  </ul>
-							</div>
+							</div> -->
 
 						<!-- Offcanvas body -->
 						<div class="offcanvas-body flex-column p-3 p-xl-0">
 							<form class="rounded-3 shadow">
 								<!-- Popular filters START -->
-								<div class="card card-body rounded-0 rounded-top p-4">
+								<div class="card card-body rounded-0 rounded-top p-4 outbound">
 									<!-- Title -->
 									<h6 class="mb-2">Outbound Depature</h6>
 									<!-- Popular filters group -->
@@ -502,7 +627,7 @@ Flight list START -->
 									  <label class="form-check-label" for="flexSwitchCheckDefault">12:00 am - 04:59 am</label>
 									</div>
 									<div class="form-check form-switch">
-									  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+									  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
 									  <label class="form-check-label" for="flexSwitchCheckChecked">05:00 am - 11:59 am</label>
 									</div>
 										<!-- Checkbox -->
@@ -511,7 +636,7 @@ Flight list START -->
 									  <label class="form-check-label" for="flexSwitchCheckDefault">12:00 pm - 05:59 pm</label>
 									</div>
 									<div class="form-check form-switch">
-									  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+									  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
 									  <label class="form-check-label" for="flexSwitchCheckChecked">06:00 pm - 11:59 pm</label>
 									</div>
 										<!-- Checkbox -->
@@ -529,20 +654,20 @@ Flight list START -->
 									<div class="col-12">
 										<!-- Checkbox -->
 									<div class="form-check form-switch">
-									  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+									  <input class="form-check-input filter_link" type="checkbox" role="switch" id="flexSwitchCheckDefault">
 									  <label class="form-check-label" for="flexSwitchCheckDefault">12:00 am - 04:59 am</label>
 									</div>
 									<div class="form-check form-switch">
-									  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+									  <input class="form-check-input filter_link" type="checkbox" role="switch" id="flexSwitchCheckChecked">
 									  <label class="form-check-label" for="flexSwitchCheckChecked">05:00 am - 11:59 am</label>
 									</div>
 										<!-- Checkbox -->
 									<div class="form-check form-switch">
-									  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+									  <input class="form-check-input filter_link" type="checkbox" role="switch" id="flexSwitchCheckDefault">
 									  <label class="form-check-label" for="flexSwitchCheckDefault">12:00 pm - 05:59 pm</label>
 									</div>
 									<div class="form-check form-switch">
-									  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+									  <input class="form-check-input filter_link" type="checkbox" role="switch" id="flexSwitchCheckChecked">
 									  <label class="form-check-label" for="flexSwitchCheckChecked">06:00 pm - 11:59 pm</label>
 									</div>
 										<!-- Checkbox -->
@@ -563,7 +688,7 @@ Flight list START -->
 												<input type="text" class="text-body input-with-range-min">
 												<input type="text" class="text-body input-with-range-max">
 											</div>
-											<div class="noui-slider-range mt-2" data-range-min='500' data-range-max='2000' data-range-selected-min='700' data-range-selected-max='1500'></div>
+											<div class="noui-slider-range mt-2 filter_link" data-range-min='500' data-range-max='2000' data-range-selected-min='0' data-range-selected-max='0'></div>
 										</div>
 									</div>
 								</div>
@@ -579,17 +704,17 @@ Flight list START -->
 									<ul class="list-inline mb-0 g-3">
 										<!-- Item -->
 										<li class="list-inline-item mb-0">
-											<input type="checkbox" class="btn-check" id="btn-check-c1">
+											<input type="checkbox"  class="btn-check filter_link" id="btn-check-c1">
 											<label class="btn btn-sm btn-light btn-primary-soft-check" for="btn-check-c1">Direct</label>
 										</li>
 										<!-- Item -->
 										<li class="list-inline-item mb-0">
-											<input type="checkbox" class="btn-check" id="btn-check-c2">
+											<input type="checkbox" class="btn-check filter_link" id="btn-check-c2">
 											<label class="btn btn-sm btn-light btn-primary-soft-check" for="btn-check-c2">1 Stop</label>
 										</li>
 										<!-- Item -->
 										<li class="list-inline-item mb-0">
-											<input type="checkbox" class="btn-check" id="btn-check-c3">
+											<input type="checkbox" class="btn-check filter_link" id="btn-check-c3">
 											<label class="btn btn-sm btn-light btn-primary-soft-check" for="btn-check-c3">2+ Stops</label>
 										</li>
 									</ul>
@@ -606,17 +731,17 @@ Flight list START -->
 									<ul class="list-inline mb-0 g-3">
 										<!-- Item -->
 										<li class="list-inline-item mb-0">
-											<input type="checkbox" class="btn-check" id="btn-check-6">
+											<input type="checkbox" class="btn-check filter_link" id="btn-check-6" data-filter="direct">
 											<label class="btn btn-sm btn-light btn-primary-soft-check" for="btn-check-6">Direct</label>
 										</li>
 										<!-- Item -->
 										<li class="list-inline-item mb-0">
-											<input type="checkbox" class="btn-check" id="btn-check-7">
+											<input type="checkbox" class="btn-check filter_link" id="btn-check-7" data-filter="1 stop">
 											<label class="btn btn-sm btn-light btn-primary-soft-check" for="btn-check-7">1 Stop</label>
 										</li>
 										<!-- Item -->
 										<li class="list-inline-item mb-0">
-											<input type="checkbox" class="btn-check" id="btn-check-8">
+											<input type="checkbox" class="btn-check filter_link" id="btn-check-8" data-filter="2+ stops">
 											<label class="btn btn-sm btn-light btn-primary-soft-check" for="btn-check-8">2+ Stops</label>
 										</li>
 									</ul>
@@ -630,31 +755,31 @@ Flight list START -->
 									<!-- Title -->
 									<h6 class="mb-2">Preferred Airline</h6>
 									<!-- Preferred Airline group -->
-									<div class="col-12">
+						 			<div class="col-12">
 										<!-- Checkbox -->
 										<div class="form-check">
-											<input class="form-check-input" type="checkbox" value="" id="airlineType1">
+											<input class="form-check-input filter_link" type="checkbox" data-filter="Blogzine" id="airlineType1" checked>
 											<label class="form-check-label" for="airlineType1">
 												<img src="assets/images/element/12.svg" class="h-15px fa-fw me-2" alt="">Blogzine
 											</label>
 										</div>	
 										<!-- Checkbox -->
 										<div class="form-check">
-											<input class="form-check-input" type="checkbox" value="" id="airlineType2">
+											<input class="form-check-input filter_link" type="checkbox" data-filter="Wizixo" id="airlineType2" checked>
 											<label class="form-check-label" for="airlineType2">
 												<img src="assets/images/element/13.svg" class="h-15px fa-fw me-2" alt="">Wizixo
 											</label>
 										</div>
 										<!-- Checkbox -->
 										<div class="form-check">
-											<input class="form-check-input" type="checkbox" value="" id="airlineType3">
+											<input class="form-check-input filter_link" type="checkbox" data-filter="Folio" id="airlineType3" checked>
 											<label class="form-check-label" for="airlineType3">
 												<img src="assets/images/element/14.svg" class="h-15px fa-fw me-2" alt="">Folio airline
 											</label>
 										</div>
 										<!-- Checkbox -->
 										<div class="form-check">
-											<input class="form-check-input" type="checkbox" value="" id="airlineType4">
+											<input class="form-check-input filter_link" type="checkbox" data-filter="Booking" id="airlineType4" checked>
 											<label class="form-check-label" for="airlineType4">
 												<img src="assets/images/element/15.svg" class="h-15px fa-fw me-2" alt="">Booking
 											</label>
@@ -664,21 +789,21 @@ Flight list START -->
 										<div class="multi-collapse collapse" id="airlineCollapes">
 											<!-- Checkbox -->
 											<div class="form-check">
-												<input class="form-check-input" type="checkbox" value="" id="airlineType7">
+												<input class="form-check-input filter_link" type="checkbox" data-filter="Formex" id="airlineType7" checked>
 												<label class="form-check-label" for="airlineType7">
 													<img src="assets/images/element/15.svg" class="h-15px fa-fw me-2" alt="">Formex
 												</label>
 											</div>
 											<!-- Checkbox -->
 											<div class="form-check">
-												<input class="form-check-input" type="checkbox" value="" id="airlineType8">
+												<input class="form-check-input filter_link" type="checkbox" data-filter="Realty" id="airlineType8" checked>
 												<label class="form-check-label" for="airlineType8">
 													<img src="assets/images/element/13.svg" class="h-15px fa-fw me-2" alt="">Realty
 												</label>
 											</div>
 											<!-- Checkbox -->
 											<div class="form-check">
-												<input class="form-check-input" type="checkbox" value="" id="airlineType9">
+												<input class="form-check-input filter_link" type="checkbox" data-filter="rocyon" id="airlineType9" checked>
 												<label class="form-check-label" for="airlineType9">
 													<img src="assets/images/element/12.svg" class="h-15px fa-fw me-2" alt="">rocyon
 												</label>
@@ -703,7 +828,7 @@ Flight list START -->
 										<!-- Checkbox -->
 										<div class="d-flex justify-content-between align-items-center">
 											<div class="form-check">
-												<input class="form-check-input" type="checkbox" value="" id="lauoverType1">
+												<input class="form-check-input filter_link" type="checkbox" data-filter="Abu Dhabi" id="lauoverType1">
 												<label class="form-check-label" for="lauoverType1">Abu Dhabi</label>
 											</div>
 											<span class="small">(01)</span>
@@ -711,7 +836,7 @@ Flight list START -->
 										<!-- Checkbox -->
 										<div class="d-flex justify-content-between align-items-center">
 											<div class="form-check">
-												<input class="form-check-input" type="checkbox" value="" id="lauoverType2">
+												<input class="form-check-input filter_link" type="checkbox" data-filter="Amsterdam" id="lauoverType2">
 												<label class="form-check-label" for="lauoverType2">Amsterdam</label>
 											</div>
 											<span class="small">(02)</span>
@@ -719,7 +844,7 @@ Flight list START -->
 										<!-- Checkbox -->
 										<div class="d-flex justify-content-between align-items-center">
 											<div class="form-check">
-												<input class="form-check-input" type="checkbox" value="" id="lauoverType3">
+												<input class="form-check-input filter_link" type="checkbox" data-filter="Chicago" id="lauoverType3">
 												<label class="form-check-label" for="lauoverType3">Chicago</label>
 											</div>
 											<span class="small">(02)</span>
@@ -727,7 +852,7 @@ Flight list START -->
 										<!-- Checkbox -->
 										<div class="d-flex justify-content-between align-items-center">
 											<div class="form-check">
-												<input class="form-check-input" type="checkbox" value="" id="lauoverType4">
+												<input class="form-check-input filter_link" type="checkbox" data-filter="Doha" id="lauoverType4">
 												<label class="form-check-label" for="lauoverType4">Doha</label>
 											</div>
 											<span class="small">(03)</span>
@@ -738,7 +863,7 @@ Flight list START -->
 											<!-- Checkbox -->
 											<div class="d-flex justify-content-between align-items-center">
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox" value="" id="lauoverType7">
+													<input class="form-check-input filter_link" type="checkbox" data-filter="Dubai" id="lauoverType7">
 													<label class="form-check-label" for="lauoverType7">Dubai</label>
 												</div>
 												<span class="small">(04)</span>
@@ -746,7 +871,7 @@ Flight list START -->
 											<!-- Checkbox -->
 											<div class="d-flex justify-content-between align-items-center">
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox" value="" id="lauoverType8">
+													<input class="form-check-input filter_link" type="checkbox" data-filter="New Delhi" value="" id="lauoverType8">
 													<label class="form-check-label" for="lauoverType8">New Delhi</label>
 												</div>
 												<span class="small">(15)</span>
@@ -754,7 +879,7 @@ Flight list START -->
 											<!-- Checkbox -->
 											<div class="d-flex justify-content-between align-items-center">
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox" value="" id="lauoverType9">
+													<input class="form-check-input filter_link" type="checkbox" data-filter="Paris" id="lauoverType9">
 													<label class="form-check-label" for="lauoverType9">Paris</label>
 												</div>
 												<span class="small">(04)</span>
@@ -767,7 +892,7 @@ Flight list START -->
 									</div>
 								</div>
 								<!-- Layover Airport END -->
-							</form><!-- Form End -->
+							</form><!-- Form End --> 
 						</div>
 
 						<!-- Buttons -->
@@ -775,34 +900,7 @@ Flight list START -->
 							<button class="btn btn-link p-0 mb-0">Clear all</button>
 							<button class="btn btn-primary mb-0">Filter Result</button>
 						</div>
-						<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
-            // JavaScript code for checkboxes click event
-            $(document).ready(function() {
-                $(":checkbox").click(function() {
-                    $(":checkbox:checked").each(function() {
-                        $('.' + this.value).hide();
-						console.log (this.value);
-                    });
-                    $(":checkbox:not(:checked)").each(function() {
-                        $('.' + this.value).show();
-                    });
-                });
-            });
-
-            // JavaScript code for switches (switch-like checkboxes) click event
-            $(document).ready(function() {
-                $(":checkbox[role='switch']").click(function() {
-                    var isChecked = $(this).is(":checked");
-                    var targetClass = $(this).attr("id");
-                    if (isChecked) {
-                        $('.' + targetClass).show();
-                    } else {
-                        $('.' + targetClass).hide();
-                    }
-                });
-            });
-        </script>
+       
 					</div>
 				<!-- Responsive offcanvas body END -->
 			</aside>
@@ -813,7 +911,7 @@ Flight list START -->
 				<div class="vstack gap-4">
 
 					<!-- Ticket item START -->
-					<div class="card border">
+					<div class="card border flights Blogzine Economy 2000">
 						<!-- Card header -->
 						<div class="card-header d-sm-flex justify-content-sm-between align-items-center">
 							<!-- Airline Name -->
@@ -877,7 +975,7 @@ Flight list START -->
 					<!-- Ticket item END -->
 
 					<!-- Ticket item START -->
-					<div class="card border">
+					<div class="card border flights 2stops Wizixo 1000">
 						<!-- Card header -->
 						<div class="card-header d-sm-flex justify-content-sm-between align-items-center">
 							<!-- Airline Name -->
@@ -962,7 +1060,7 @@ Flight list START -->
 					<!-- Action box END -->
 
 					<!-- Ticket item START -->
-					<div class="card border">
+					<div  class="card border flights Premium Folio">
 						<!-- Card header -->
 						<div class="card-header d-sm-flex justify-content-sm-between align-items-center">
 							<!-- Airline Name -->
@@ -970,7 +1068,7 @@ Flight list START -->
 								<img src="assets/images/element/13.svg" class="w-30px me-2" alt="">
 								<h6 class="fw-normal mb-0">Blogzine Airline (FFR - 5682)</h6>
 							</div>
-							<h6 class="fw-normal mb-0"><span class="text-body">Travel Class:</span> Economy</h6>
+							<h6 class="fw-normal mb-0"><span class="text-body">Travel Class:</span> Premium</h6>
 						</div>
 
 						<!-- Card body -->
@@ -1463,6 +1561,7 @@ Footer END -->
 <!-- Back to top -->
 <div class="back-top"></div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Bootstrap JS -->
 <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -1473,6 +1572,172 @@ Footer END -->
 
 <!-- ThemeFunctions -->
 <script src="assets/js/functions.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"></script>
+
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+
+<script>
+// Assuming you have multiple select elements with the class "mySelect"
+
+$(document).ready(function(){
+		
+	$('.search').each(function(index, element){
+		$(this).select2({
+			theme: 'bootstrap-5',
+			ajax: {
+			  url: 'airport_json.php',
+			  dataType: 'json',
+			  processResults: function(data) {
+				  console.log(index);
+				return {
+				  results: data
+				};
+			  }
+			}
+		});
+	});
+	
+$("#one_way").validate({
+	rules: {
+		one_way_from : "required",
+		one_way_to : "required",
+		one_way_departure : "required"
+	},
+	messages: {
+		one_way_from : "<i class='bi bi-info-circle-fill'></i> This field is required",
+		one_way_to : "<i class='bi bi-info-circle-fill'></i> This field is required",
+		one_way_departure : "<i class='bi bi-info-circle-fill'></i> This field is required"
+	},
+	submitHandler: function(form) {
+		//You can as well use ajax to process your informations in this section
+		var one_way = $("#one_way").serialize();
+		console.log(one_way)
+	}
+});
+
+$("#round_trip").validate({
+	rules: {
+		round_trip_from : "required",
+		round_trip_to : "required",
+		round_trip_departure : "required",
+		round_trip_return : "required",
+	},
+	messages: {
+		round_trip_from : "<i class='bi bi-info-circle-fill'></i> This field is required",
+		round_trip_to : "<i class='bi bi-info-circle-fill'></i> This field is required",
+		round_trip_departure : "<i class='bi bi-info-circle-fill'></i> This field is required",
+		round_trip_return : "<i class='bi bi-info-circle-fill'></i> This field is required",
+	},
+	submitHandler: function(form){
+		//You can as well use ajax to process your informations in this section
+		//form.submit();
+		console.log(form)
+		
+	
+	}
+});
+
+
+$("#multi_city").validate({
+	rules:{
+        multi_city_from0:"required",
+        multi_city_to0:"required",
+        multi_city_departure0:"required",
+    }
+	
+});
+
+
+
+	function initializeSelect2(selectElementObj){
+		selectElementObj.select2({
+			theme: 'bootstrap-5',
+			ajax: {
+			  url: 'airport_json.php',
+			  dataType: 'json',
+			  processResults: function(data) {
+				return {
+				  results: data
+				};
+			  }
+			}
+		  });
+	}
+  
+  function flatpicker(element){
+	   element.each(function (){
+          var mode = $(this).attr('data-mode') == 'multiple' ? 'multiple' : $(this).attr('data-mode') == 'range' ? 'range' : 'single';
+          var enableTime = $(this).attr('data-enableTime') == 'true' ? true : false;
+          var noCalendar = $(this).attr('data-noCalendar') == 'true' ? true : false;
+          var inline = $(this).attr('data-inline') == 'true' ? true : false;
+          var dateFormat = $(this).attr('data-date-format') ? $(this).attr('data-date-format') : $(this).attr('data-enableTime') == 'true' ? "h:i K" : "d M";
+
+          flatpickr($(this), {
+            mode: mode,
+            enableTime: enableTime,
+            noCalendar: noCalendar,
+            inline: inline,
+            animate: "false",
+            position: "top",
+            dateFormat: dateFormat, //Check supported characters here: https://flatpickr.js.org/formatting/
+            disableMobile: "true"
+          });
+
+        });
+  }
+  
+
+var max_fields = 5; //maximum input boxes allowed
+var wrapper = $(".input_fields_wrap"); //Fields wrapper
+var add_button = $(".add_field_button"); //Add button ID
+var x = 0; //initlal text box count
+$(add_button).click(function(e){ //on add input button click
+	e.preventDefault();
+	if(x < max_fields){ //max input box allowed
+	x++; //text box increment
+	 var $newSelects = $('<div class="row g-4 py-3"><div class="col-md-6 col-lg-4 position-relative"><div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3"><label class="mb-1"><i class="bi bi-geo-alt me-2"></i>From</label><select class="form-control search multi_city_input" name="multi_city_from'+x+'"><option value="">Select location</option></select></div></div><div class="col-md-6 col-lg-4"><div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3"><label class="mb-1"><i class="bi bi-send me-2"></i>To</label><select class="form-control search multi_city_input" name="multi_city_to'+x+'"><option value="">Select location</option></select></div></div><div class="col-md-6 col-lg-3"><div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3"><label class="mb-1"><i class="bi bi-calendar me-2"></i>Departure</label><input type="text" class="form-control flatpickr multi_city_input" name="multi_city_departure'+x+'" data-date-format="d M Y" placeholder="Select date"></div></div><div class="col-md-6 col-lg-1 mt-5 remove_field"><button class="btn btn-danger"><i class="fas fa-trash"></i></button></div></div>') ;
+	 
+		$(wrapper).append($newSelects); //add input box
+		initializeSelect2($newSelects.find('.search'));
+		flatpicker($newSelects.find('.flatpickr'));
+		 $('.multi_city_input').each(function () {
+			$(this).rules("add", {
+				required: true
+			});
+		});
+	}
+});
+$(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+	e.preventDefault(); $(this).parent('div').remove(); x--;
+});
+
+
+
+});
+
+
+
+
+
+$(document).ready(function(){
+var $mediaElements = $('.flights');
+
+
+    $('.filter_link').on("change", function () {
+		var filterVal = $(this).data('filter');
+        if (this.checked) {
+			$mediaElements.filter('.' + filterVal).show();
+        } else {
+			$mediaElements.filter('.' + filterVal).hide();
+        }
+    });
+
+
+});
+</script>
 
 </body>
 

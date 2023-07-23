@@ -495,16 +495,17 @@ Main Banner START -->
 			<!-- Multi-city -->
 			 <div class="tab-pane fade" id="pills-multi-city" role="tabpanel" aria-labelledby="pills-multi-city-tab">
                 <!-- Leaving From -->
+				<form name="multi_city" id="multi_city">
 				
                 <div class="input_fields_wrap">
-				<form name="multi_city" id="multi_city">
+				
 					<div class="row g-4">
 					<!-- Leaving From -->
 					<div class="col-md-4 col-lg-4 position-relative">
 					  <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
 						<!-- Input field -->
 						<label class="mb-1"><i class="bi bi-geo-alt me-2"></i>From</label>
-						<select class="form-control search multi_city_input" name="multi_city_from[]">
+						<select class="form-control search multi_city_input" name="multi_city_from0">
 						  <option value="">Select location</option>
 						</select>
 					  </div>
@@ -515,7 +516,7 @@ Main Banner START -->
 					  <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
 						<!-- Input field -->
 						<label class="mb-1"><i class="bi bi-send me-2"></i>To</label>
-						<select class="form-control search multi_city_input" name="multi_city_to[]">
+						<select class="form-control search multi_city_input" name="multi_city_to0">
 						  <option value="">Select location</option>
 						</select>
 					  </div>
@@ -525,13 +526,12 @@ Main Banner START -->
 					<div class="col-lg-4">
 					  <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
 						<label class="mb-1"><i class="bi bi-calendar me-2"></i>Departure</label>
-						<input type="text" class="form-control flatpickr multi_city_input" data-date-format="d M Y" placeholder="Select date" name="multi_city_departure[]">
+						<input type="text" class="form-control flatpickr multi_city_input" data-date-format="d M Y" placeholder="Select date" name="multi_city_departure0">
 					  </div>
 					</div>
-					
 				  </div>
 				  
-			</div>
+				</div>
 				
 				<div class="row py-2">
 					<div class="col-6">
@@ -542,7 +542,7 @@ Main Banner START -->
 						<button type="submit" class="btn btn-primary mb-n4">Search Now <i class="bi bi-arrow-right ps-3"></i></button>
 					</div>
 				</div>
-				</form>
+			</form>
 			  
 				</div>
 			  
@@ -1121,13 +1121,14 @@ Footer END -->
 
 <!-- Script -->
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"></script>
+
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 
  <script>
  // Assuming you have multiple select elements with the class "mySelect"
 
-    $(document).ready(function(){
+$(document).ready(function(){
 		
 	$('.search').each(function(index, element){
 		$(this).select2({
@@ -1136,7 +1137,7 @@ Footer END -->
 			  url: 'airport_json.php',
 			  dataType: 'json',
 			  processResults: function(data) {
-				  console.log(data);
+				  console.log(index);
 				return {
 				  results: data
 				};
@@ -1158,7 +1159,8 @@ $("#one_way").validate({
 	},
 	submitHandler: function(form) {
 		//You can as well use ajax to process your informations in this section
-		form.submit();
+		var one_way = $("#one_way").serialize();
+		console.log(one_way)
 	}
 });
 
@@ -1177,40 +1179,39 @@ $("#round_trip").validate({
 	},
 	submitHandler: function(form){
 		//You can as well use ajax to process your informations in this section
-		form.submit();
+		//form.submit();
+		console.log(form)
+		
+	
 	}
 });
 
 
-$("#multi_city").validate();
-
-  // Add validation rules for dynamically created inputs
-  $(document).on("focusout", ".multi_city_input", function() {
-    $(this).rules("add", {
-      required: true,
-      messages: {
-        required: "This field is required."
-      }
-    });
-  });
+$("#multi_city").validate({
+	rules:{
+        multi_city_from0:"required",
+        multi_city_to0:"required",
+        multi_city_departure0:"required",
+    }
+	
+});
 
 
 
 	function initializeSelect2(selectElementObj){
-    selectElementObj.select2({
-		theme: 'bootstrap-5',
-        ajax: {
-          url: 'airport_json.php',
-          dataType: 'json',
-          processResults: function(data) {
-			  console.log(data);
-            return {
-              results: data
-            };
-          }
-        }
-      });
-  }
+		selectElementObj.select2({
+			theme: 'bootstrap-5',
+			ajax: {
+			  url: 'airport_json.php',
+			  dataType: 'json',
+			  processResults: function(data) {
+				return {
+				  results: data
+				};
+			  }
+			}
+		  });
+	}
   
   function flatpicker(element){
 	   element.each(function (){
@@ -1238,16 +1239,21 @@ $("#multi_city").validate();
 var max_fields = 5; //maximum input boxes allowed
 var wrapper = $(".input_fields_wrap"); //Fields wrapper
 var add_button = $(".add_field_button"); //Add button ID
-var x = 1; //initlal text box count
+var x = 0; //initlal text box count
 $(add_button).click(function(e){ //on add input button click
 	e.preventDefault();
 	if(x < max_fields){ //max input box allowed
 	x++; //text box increment
-	 var $newSelects = $('<div class="row g-4 py-3"><div class="col-md-6 col-lg-4 position-relative"><div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3"><label class="mb-1"><i class="bi bi-geo-alt me-2"></i>From</label><select class="form-control search multi_city_input" name="multi_city_from[]"><option value="">Select location</option></select></div></div><div class="col-md-6 col-lg-4"><div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3"><label class="mb-1"><i class="bi bi-send me-2"></i>To</label><select class="form-control search multi_city_input" name="multi_city_to[]"><option value="">Select location</option></select></div></div><div class="col-md-6 col-lg-3"><div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3"><label class="mb-1"><i class="bi bi-calendar me-2"></i>Departure</label><input type="text" class="form-control flatpickr multi_city_input" name="multi_city_departure[]" data-date-format="d M Y" placeholder="Select date"></div></div><div class="col-md-6 col-lg-1 mt-5 remove_field"><button class="btn btn-danger"><i class="fas fa-trash"></i></button></div></div>') ;
+	 var $newSelects = $('<div class="row g-4 py-3"><div class="col-md-6 col-lg-4 position-relative"><div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3"><label class="mb-1"><i class="bi bi-geo-alt me-2"></i>From</label><select class="form-control search multi_city_input" name="multi_city_from'+x+'"><option value="">Select location</option></select></div></div><div class="col-md-6 col-lg-4"><div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3"><label class="mb-1"><i class="bi bi-send me-2"></i>To</label><select class="form-control search multi_city_input" name="multi_city_to'+x+'"><option value="">Select location</option></select></div></div><div class="col-md-6 col-lg-3"><div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3"><label class="mb-1"><i class="bi bi-calendar me-2"></i>Departure</label><input type="text" class="form-control flatpickr multi_city_input" name="multi_city_departure'+x+'" data-date-format="d M Y" placeholder="Select date"></div></div><div class="col-md-6 col-lg-1 mt-5 remove_field"><button class="btn btn-danger"><i class="fas fa-trash"></i></button></div></div>') ;
 	 
 		$(wrapper).append($newSelects); //add input box
 		initializeSelect2($newSelects.find('.search'));
 		flatpicker($newSelects.find('.flatpickr'));
+		 $('.multi_city_input').each(function () {
+			$(this).rules("add", {
+				required: true
+			});
+		});
 	}
 });
 $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
