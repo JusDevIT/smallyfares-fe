@@ -86,6 +86,7 @@
 	<!-- Plugins CSS -->
 	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/tiny-slider/tiny-slider.css">
 	<link rel="stylesheet" type="text/css" href="assets/vendor/choices/css/choices.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/vendor/flatpickr/css/flatpickr.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
@@ -99,11 +100,7 @@
 <body>
 
 <!-- Top alert START -->
-<div class="alert alert-warning py-2 m-0 bg-primary border-0 rounded-0 alert-dismissible fade show text-center overflow-hidden" role="alert">
-	<p class="text-white m-0">Traveling internationally? Get update information on COVID-19 travel guidance and restrictions<a href="#" class="btn btn-xs btn-dark ms-2 mb-0">Learn more!</a></p>
-	<!-- Close button -->
-	<button type="button" class="btn-close btn-close-white opacity-9 p-3" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
+
 <!-- Top alert END -->
 
 <!-- Header START -->
@@ -118,66 +115,34 @@
 			</a>
 			<!-- Logo END -->
 			
-			<!-- Responsive navbar toggler -->
-			<button class="navbar-toggler ms-auto mx-3 me-xl-0 p-0 p-sm-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-animation">
-					<span></span>
-					<span></span>
-					<span></span>
-				</span>
+			
+			<!-- Responsive category toggler -->
+			<button class="navbar-toggler ms-sm-auto mx-3 me-md-0 p-0 p-sm-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCategoryCollapse" aria-controls="navbarCategoryCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="bi bi-grid-3x3-gap-fill fa-fw"></i><span class="d-none d-sm-inline-block small">Category</span>
 			</button>
 
 			<!-- Main navbar START -->
 			<div class="navbar-collapse collapse" id="navbarCollapse">
-				<!-- Nav traveler menu START -->
 				<ul class="navbar-nav navbar-nav-scroll me-auto">
-					<!-- Nav item 1 Demos -->
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle rounded px-3 py-3 py-xl-0" href="#" id="categoryMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<i class="fa-solid fa-suitcase-rolling"></i> Travelers
-						</a>
-						<ul class="dropdown-menu" aria-labelledby="categoryMenu">
-	
-							<!-- Hotels -->
-							<li class="mb-1">
-								<a href="index-hotel.html" class="dropdown-item bg-light-hover d-flex align-items-center rounded p-2">
-									<!-- Icon -->
-									<div class="icon-md bg-primary bg-opacity-10 rounded text-primary flex-shrink-0"><i class="fa-solid fa-hotel"></i></div>
-									<div class="ms-2">
-										<h6 class="mb-0">Hotels</h6>
-									</div>
-								</a>	
-							</li>
-							
-							<!-- Flights -->
-							<li class="mb-1">
-								<a href="index.html" class="dropdown-item bg-light-hover d-flex align-items-center rounded p-2 active">
-									<!-- Icon -->
-									<div class="icon-md bg-primary bg-opacity-10 rounded text-primary flex-shrink-0"><i class="fa-solid fa-plane"></i></div>
-									<div class="ms-2">
-										<h6 class="mb-0">Flights</h6>
-									</div>
-								</a>	
-							</li>
-	
-	
-							<!-- Cabs -->
-							<li class="mb-1">
-								<a href="index-cab.html" class="dropdown-item bg-light-hover d-flex align-items-center rounded p-2">
-									<!-- Icon -->
-									<div class="icon-md bg-primary bg-opacity-10 rounded text-primary flex-shrink-0"><i class="fa-solid fa-car"></i></div>
-									<div class="ms-2">
-										<h6 class="mb-0">Cars</h6>
-									</div>
-								</a>	
-							</li>
-						</ul>
-					</li>
-				</ul>
-				<!-- Nav traveler menu END -->
 				
-				<!-- Nav main menu END -->
+				</ul>
 			</div>
+			<!-- Main navbar END -->
+
+			<!-- Nav category menu START -->
+			<div class="navbar-collapse collapse" id="navbarCategoryCollapse">
+				<ul class="navbar-nav navbar-nav-scroll nav-pills-primary-soft text-center ms-auto p-2 p-xl-0">
+					<!-- Nav item Flight -->
+					<li class="nav-item"> <a class="nav-link active" href="index.html"><i class="fa-solid fa-plane me-2"></i>Flight</a>	</li>
+					
+					<!-- Nav item Hotel -->
+					<li class="nav-item"> <a class="nav-link" href="index-hotel.html"><i class="fa-solid fa-hotel me-2"></i>Hotel</a>	</li>
+
+					<!-- Nav item Cabs -->
+					<li class="nav-item"> <a class="nav-link" href="index-cab.html"><i class="fa-solid fa-car me-2"></i>Car</a></li>
+				</ul>
+			</div>
+			<!-- Nav category menu END -->
 			<!-- Main navbar END -->
 
 			<!-- Navbar right side START -->
@@ -225,7 +190,7 @@
 				</li>
 				<!-- Dark mode options END -->
 
-				<!-- Search -->
+				<!-- Search 
 				<li class="nav-item dropdown nav-search me-2">
 					<a class="nav-link mb-0 py-0" role="button" href="#" id="navSearch" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-display="static">
 						<i class="bi bi-search fs-5"> </i>
@@ -236,7 +201,7 @@
 							<button class="btn btn-primary m-0" type="submit">Search</button>
 						</form>
 					</div>
-				</li>
+				</li> -->
 
 				<!-- Sign In button -->
 				<li class="nav-item ms-2 d-none d-sm-block">
@@ -255,74 +220,97 @@
 <main>
 	
 <!-- =======================
-Main Banner START -->
-<section class="py-0">
-	<div class="container">
-		<!-- Background image -->
-		<div class="rounded-3 p-3 p-sm-5" style="background-image: url(assets/images/bg/01.jpg); background-position: center center; background-repeat: no-repeat; background-size: cover;">
-			<!-- Banner title -->
-			<div class="row"> 
-				<div class="col-md-10 mx-auto text-center"> 
-					<h1 class="text-dark display-3 pt-sm-5 my-5">Ready to take off?</h1>
-				</div>
+Main banner START -->
+		<section class="pt-0">
+			<!-- Background and title -->
+			<div  >
+			<!-- Slider start-->
+			<div id="slider-hero" class="carousel slide" data-bs-ride="carousel">
+		  <div class="carousel-inner">
+			<div class="carousel-item active c-item">
+			  <img src="assets/images/bg/26.jpg" class="d-block w-100 c-img" alt="Slider 1">
 			</div>
+			<div class="carousel-item c-item">
+			  <img src="assets/images/bg/27.jpg" class="d-block w-100 c-img" alt="Slider 2">
+			</div>
+			<div class="carousel-item c-item">
+			  <img src="assets/images/bg/02.jpg" class="d-block w-100 c-img" alt="Slider 3">
+			</div>
+		  </div>
+		</div>
+		<!-- Slider End -->
 
-			<!-- Booking from START -->
-			<div class="bg-mode position-relative px-3 px-sm-4 pt-4 mb-4 mb-sm-0">
+	</div>
 
-				<!-- Svg decoration -->
-				<figure class="position-absolute top-0 start-0 h-100 ms-n2 ms-sm-n1">
-					<svg class="h-100" viewBox="0 0 12.9 324" style="enable-background:new 0 0 12.9 324;">
-						<path class="fill-mode" d="M9.8,316.4c1.1-26.8,2-53.4,1.9-80.2c-0.1-18.2-0.8-36.4-1.2-54.6c-0.2-8.9-0.2-17.7,0.8-26.6 c0.5-4.5,1.1-9,1.4-13.6c0.1-1.9,0.1-3.7,0.1-5.6c-0.2-0.2-0.6-1.5-0.2-3.1c-0.3-1.8-0.4-3.7-0.4-5.5c-1.2-3-1.8-6.3-1.7-9.6 c0.9-19,0.5-38.1,0.8-57.2c0.3-17.1,0.6-34.2,0.2-51.3c-0.1-0.6-0.1-1.2-0.1-1.7c0-0.8,0-1.6,0-2.4c0-0.5,0-1.1,0-1.6 c0-1.2,0-2.3,0.2-3.5H0v11.8c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1V31c3.3,0,6.1,2.7,6.1,6.1S3.3,43.3,0,43.3v6.9 c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.8,6.1,6.1 s-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1v6.9 c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.8,6.1,6.1 c0,3.4-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.7,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1v6.9 c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.7,6.1,6.1 c0,3.4-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1V324h9.5C9.6,321.4,9.7,318.8,9.8,316.4z"/>
-					</svg>
-				</figure>
-
-				<!-- Svg decoration -->
-				<figure class="position-absolute top-0 end-0 h-100 rotate-180 me-n2 me-sm-n1">
-					<svg class="h-100" viewBox="0 0 21 324" style="enable-background:new 0 0 21 324;">
-						<path class="fill-mode" d="M9.8,316.4c1.1-26.8,2-53.4,1.9-80.2c-0.1-18.2-0.8-36.4-1.2-54.6c-0.2-8.9-0.2-17.7,0.8-26.6 c0.5-4.5,1.1-9,1.4-13.6c0.1-1.9,0.1-3.7,0.1-5.6c-0.2-0.2-0.6-1.5-0.2-3.1c-0.3-1.8-0.4-3.7-0.4-5.5c-1.2-3-1.8-6.3-1.7-9.6 c0.9-19,0.5-38.1,0.8-57.2c0.3-17.1,0.6-34.2,0.2-51.3c-0.1-0.6-0.1-1.2-0.1-1.7c0-0.8,0-1.6,0-2.4c0-0.5,0-1.1,0-1.6 c0-1.2,0-2.3,0.2-3.5H0v11.8c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1V31c3.3,0,6.1,2.7,6.1,6.1S3.3,43.3,0,43.3v6.9 c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.8,6.1,6.1 s-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1v6.9 c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.8,6.1,6.1 c0,3.4-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.7,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1v6.9 c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.7,6.1,6.1 c0,3.4-2.8,6.1-6.1,6.1v6.9c3.3,0,6.1,2.8,6.1,6.1c0,3.4-2.8,6.1-6.1,6.1V324h9.5C9.6,321.4,9.7,318.8,9.8,316.4z"/>
-					</svg>
-				</figure>
-
-				<div class="row g-4 position-relative">
-					<!-- Nav tabs START -->
-					<div class="col-lg-6">
-						<ul class="nav nav-pills nav-pills-dark" id="pills-tab" role="tablist">
-							<li class="nav-item" role="presentation">
-								<button class="nav-link rounded-start rounded-0 mb-0 active" id="pills-one-way-tab" data-bs-toggle="pill" data-bs-target="#pills-one-way" type="button" role="tab" aria-selected="true">One Way</button>
-							</li>
-							<li class="nav-item" role="presentation">
-								<button class="nav-link rounded-end rounded-0 mb-0" id="pills-round-trip-tab" data-bs-toggle="pill" data-bs-target="#pills-round-trip" type="button" role="tab" aria-selected="false">Round Trip</button>
-							</li>
-							<li class="nav-item" role="presentation">
-								<button class="nav-link rounded-end rounded-0 mb-0" id="pills-multi-city-tab" data-bs-toggle="pill" data-bs-target="#pills-multi-city" type="button" role="tab" aria-selected="false">Multi City</button>
-							</li>
-						</ul>
-					</div>
-					<!-- Nav tabs END -->
+	<!-- Search START -->
+	<div class="container mt-n8">
+		<div class="row">
+			<!-- Tabs START -->
+			<div class="col-11 col-lg-8 col-xl-4 mx-auto">
+				<ul class="nav nav-tabs nav-bottom-line nav-justified nav-responsive bg-mode rounded-top z-index-9 position-relative pt-2 pb-0 px-4">
 					
-					 <!-- Ticket class -->
-					<div class="col-lg-3 ms-auto">
-					<div class="form-control-bg-light form-fs-md">
-						<div class="form-control-bg-light form-fs-md">
-						<label class="mb-1"><i class="bi bi-geo-alt me-2"></i>Class</label>
-							<select class="form-select js-choice" data-search-enabled="true">
-								<option value="">Select Class</option>
-								<option>Economy</option>
-								<option>Premium Economy</option>
-								<option>Business</option>
-								<option>First Class</option>
-							</select>
-						</div>	
-					</div>
-				</div>
-				<!-- Ticket Travelers -->
-					<div class="col-lg-3 ms-auto">
-					<div class="form-control-bg-light form-fs-md">
-						<div class="form-control-bg-light form-fs-md">
-						<label class="mb-1"><i class="bi bi-geo-alt me-2"></i>Select guests</label>
-								<div class="dropdown guest-selector me-2">
-										<input type="text" class="form-guest-selector form-control selection-result" value="" placeholder="0 Adult 0 Child" data-bs-auto-close="outside" data-bs-toggle="dropdown">
+					<li class="nav-item">
+						<a class="nav-link mb-0 active" data-bs-toggle="tab" href="#tab-1-2"><i class="fa-solid fa-plane fa-fw me-2"></i>Flight</a> 
+					</li>
+					<li class="nav-item"> 
+						<a class="nav-link mb-0" data-bs-toggle="tab" href="#tab-1-1"><i class="fa-solid fa-hotel fa-fw me-2"></i>Hotel</a> 
+					</li>
+					<li class="nav-item"> 
+						<a class="nav-link mb-0" data-bs-toggle="tab" href="#tab-1-4"><i class="fa-solid fa-car fa-fw me-2"></i>Cars</a> 
+					</li>
+				</ul>
+			</div>
+			<!-- Tabs END -->
+
+			<!-- Tab content START -->
+			<div class="col-12">
+				<div class="tab-content" id="nav-tabContent">
+					
+					<!-- Tab content item START -->
+					<div class="tab-pane fade show active" id="tab-1-2">
+						<form class="card shadow p-0">
+							<!-- Card header -->
+							<div class="card-header p-2">
+								<div class="row g-4 align-items-center">
+									<!-- Radio tab -->
+									<div class="col-md-6 col-lg-4 col-xl-6 ms-auto">
+										<div class="nav nav-pills" id="pills-tab" role="tablist">
+											<div class="form-check form-check-inline active" id="flight-one-way-tab" data-bs-toggle="pill" data-bs-target="#flight-one-way" role="tab" aria-controls="flight-one-way" aria-selected="true">
+												<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
+												<label class="form-check-label" for="inlineRadio1">One Way</label>
+											</div>
+											<div class="form-check form-check-inline" id="flight-round-way-tab" data-bs-toggle="pill" data-bs-target="#flight-round-way" role="tab" aria-controls="flight-round-way" aria-selected="false">
+												<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+												<label class="form-check-label" for="inlineRadio2">Round Trip</label>
+											</div>
+											<div class="form-check form-check-inline" id="flight-multi-city-tab" data-bs-toggle="pill" data-bs-target="#flight-multi-city" role="tab" aria-controls="flight-multi-city" aria-selected="false">
+												<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+												<label class="form-check-label" for="inlineRadio2">Multi-City</label>
+											</div>
+										</div>
+									</div>
+									<!-- Select -->
+									<div class="col-lg-2">
+									<div class="form-control-bg-light form-fs-md">
+										<div class="form-control-bg-light form-fs-md">
+											<select class="form-select js-choice" data-search-enabled="true">
+												<option value="">Select Class</option>
+												<option>Economy</option>
+												<option>Premium Economy</option>
+												<option>Business</option>
+												<option>First Class</option>
+											</select>
+										</div>	
+									</div>
+									
+									
+								</div>
+								<!-- Guest -->
+											<div class="col-md-3">
+											<div class="form-icon-input form-fs-lg">
+														<div class="dropdown guest-selector me-2">
+										<input type="text" class="form-guest-selector form-control selection-result" value="" placeholder="Passenger" data-bs-auto-close="outside" data-bs-toggle="dropdown">
+										<span class="form-icon"><i class="bi bi-people fs-5"></i></span>
 									
 										<!-- dropdown items -->
 										<ul class="dropdown-menu guest-selector-dropdown">
@@ -379,235 +367,543 @@ Main Banner START -->
 										</ul>
 									</div>
 							</select>
-						</div>	
+						
 						</div>	
 					</div>
-				
+								</div>
+								
+							</div>
 
-          <!-- Tab content START -->
-          <div class="tab-content mt-4" id="pills-tabContent">
-            <!-- One way tab START -->
-            <div class="tab-pane fade show active" id="pills-one-way" role="tabpanel" aria-labelledby="pills-one-way-tab">
-			<form name="one_way" id="one_way">
-              <div class="row g-4">
-				
-				 <!-- Leaving From -->
-                <div class="col-md-6 col-lg-4 position-relative mb-3">
-                  <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
-                    <!-- Input field -->
-                    <label class="mb-1"><i class="bi bi-geo-alt me-2"></i>From</label>
-                    <select class="form-control search" name="one_way_from">
-                      <option value="">Select location</option>
-                    </select>
-                  </div>
+							<!-- Card body -->
+							<div class="card-body p-1 pt-0">
+								<!-- Tab content START -->
+								<div class="tab-content" id="pills-tabContent">
+									<!-- One way tab START -->
+									<div class="tab-pane fade show active" id="flight-one-way" role="tabpanel" aria-labelledby="flight-one-way-tab">
+									<form name="one_way" id="one_way">
+										<div class="row g-4">
+											<!-- From -->
+											<div class="col-md-3 position-relative">
+												<div class="form-icon-input form-size-lg form-fs-lg">
+													<select class="form-select js-choice" name="one_way_from">
+														<option value="">Select location</option>
+													</select>
+													<span class="form-icon"><i class="bi bi-geo-alt fs-5"></i></span>
+												</div>
 
-                  <!-- Auto fill button -->
-                  <div class="btn-flip-icon mt-3 mt-md-0">
-                    <button class="btn btn-white shadow btn-round mb-0"><i class="fa-solid fa-right-left"></i></button>
-                  </div>
-                </div>
+												<!-- Auto fill button -->
+												<div class="btn-flip-icon z-index-9">
+													<button class="btn btn-dark shadow btn-round mb-0"><i class="fa-solid fa-right-left"></i></button>
+												</div>
+											</div>
 
-                <!-- Going To -->
-                <div class="col-md-6 col-lg-4 mb-3">
-                  <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
-                    <!-- Input field -->
-                    <label class="mb-1"><i class="bi bi-send me-2"></i>To</label>
-                    <select class="form-control search" name="one_way_to">
-                      <option value="">Select location</option>
-                    </select>
-                  </div>
-                </div>
+											<!-- To -->
+											<div class="col-md-3">
+												<div class="form-icon-input form-size-lg form-fs-lg">
+													<select class="form-select js-choice" name="one_way_to">
+											  <option value="">Select location</option>
+											</select>
+													<span class="form-icon"><i class="bi bi-send fs-5"></i></span>
+												</div>
+											</div>
 
-                <!-- Departure -->
-                <div class="col-lg-4 mb-3">
-                  <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
-                    <label class="mb-1"><i class="bi bi-calendar me-2"></i>Departure</label>
-                    <input type="text" class="form-control flatpickr" data-date-format="d M Y" placeholder="Select date" name="one_way_departure">
-                  </div>
-                </div>
-				
-                <div class="col-12 text-end pt-0">
-                  <button type="submit" class="btn btn-primary mb-3">Search Now <i class="bi bi-arrow-right ps-3"></i></button>
-                </div>
-				</div>
-				</form>
-              
-            </div>
-            <!-- One way tab END -->
+											<!-- Date -->
+											<div class="col-md-3">
+												<div class="form-icon-input form-fs-lg">
+													<input type="text" class="form-control form-control-lg flatpickr" data-date-format="d/M/Y"  placeholder="Leaving on" name="one_way_departure">
+													<span class="form-icon"><i class="bi bi-calendar fs-5"></i></span>
+												</div>
+											</div>
+											<!-- Button -->
+											<div class="col-md-3 text-center">
+											 <button type="submit"<a class= "btn btn-lg btn-primary mb-n7">Search Flight <i class="bi bi-arrow-right ps-3"></i></a> </button>
+										</div>
+										</div>
+										</form>
+									</div>
+									<!-- One way trip END -->
 
-            <!-- Round way tab END -->
-            <div class="tab-pane fade" id="pills-round-trip" role="tabpanel" aria-labelledby="pills-round-trip-tab">
-			  <form name="round_trip" id="round_trip" method="POST" action="">
-              <div class="row g-4">
+									<!-- Round way tab START -->
+									<div class="tab-pane fade" id="flight-round-way" role="tabpanel" aria-labelledby="flight-round-way-tab">
+										<!-- One way trip START -->
+										<div class="row g-4">
+											<!-- From -->
+											<div class="col-md-3 position-relative">
+												<div class="form-icon-input form-size-lg form-fs-lg">
+													<select class="form-select js-choice" name="round_trip_from">
+														<<option value="">Select location</option>
+													</select>
+													<span class="form-icon"><i class="bi bi-geo-alt fs-5"></i></span>
+												</div>
+
+												<!-- Auto fill button -->
+												<div class="btn-flip-icon z-index-9">
+													<button class="btn btn-dark shadow btn-round mb-0"><i class="fa-solid fa-right-left"></i></button>
+												</div>
+											</div>
+
+											<!-- To -->
+											<div class="col-md-3">
+												<div class="form-icon-input form-size-lg form-fs-lg">
+													<select class="form-select js-choice" name="round_trip_to">
+													  <option value="">Select location</option>
+													</select>
+													<span class="form-icon"><i class="bi bi-send fs-5"></i></span>
+												</div>
+											</div>
+
+											<!-- Date -->
+											<div class="col-md-2">
+												<div class="form-icon-input form-fs-lg">
+													<input type="text" class="form-control form-control-lg flatpickr" data-date-format="d/M/Y" placeholder="Leaving" name="round_trip_departure">
+													<span class="form-icon"><i class="bi bi-calendar fs-5"></i></span>
+												</div>
+											</div>
+
+											<!-- Date -->
+											<div class="col-md-2">
+												<div class="form-icon-input form-fs-lg">
+													<input type="text" class="form-control form-control-lg flatpickr" data-date-format="d/M/Y" placeholder="Returning" name="round_trip_return">
+													<span class="form-icon"><i class="bi bi-calendar fs-5"></i></span>
+												</div>
+											</div>
+											<!-- Button -->
+										<div class="col-md-2 text-center">
+											<button type="submit"<a class="btn btn-lg btn-primary mb-n7" href="#">Search Flight <i class="bi bi-arrow-right ps-3"></i></a></button>
+										</div>
+										</div>
+										
+										<!-- One way trip END -->
+									</div>
+									<!-- Round way tab END -->
+									
+									<!-- Multi-city tab START -->
+									<div class="tab-pane fade" id="flight-multi-city" role="tabpanel" aria-labelledby="flight-multi-city-tab">
+										<div class="row g-4">
+											<!-- From -->
+											<div class="col-md-4 position-relative">
+												<div class="form-icon-input form-size-lg form-fs-lg">
+													<select class="form-select js-choice multi_city_input" name="multi_city_from0">
+														<option value="">Select location</option>
+													</select>
+													<span class="form-icon"><i class="bi bi-geo-alt fs-5"></i></span>
+												</div>
+
+												<!-- Auto fill button -->
+												<div class="btn-flip-icon z-index-9">
+													<button class="btn btn-dark shadow btn-round mb-0"><i class="fa-solid fa-right-left"></i></button>
+												</div>
+											</div>
+
+											<!-- To -->
+											<div class="col-md-4">
+												<div class="form-icon-input form-size-lg form-fs-lg">
+													<select class="form-select js-choice multi_city_input" name="multi_city_to0">
+													  <option value="">Select location</option>
+													</select>
+													<span class="form-icon"><i class="bi bi-send fs-5"></i></span>
+												</div>
+											</div>
+
+											<!-- Date -->
+											<div class="col-md-3">
+												<div class="form-icon-input form-fs-lg">
+													<input type="text" class="form-control form-control-lg flatpickr" data-date-format="d/M/Y"  placeholder="Leaving on" name="multi_city_departure0">
+													<span class="form-icon"><i class="bi bi-calendar fs-5"></i></span>
+												</div>
+											</div>
+											<!-- Button -->
+										</div>
+										<div class="row py-2">
+										<div class="col-6">
+											<a class="btn btn-dark add_field_button" href="#">Add another flight <i class="fas fa-plus ms-2"></i></a>
+										</div>
+										<div class="col-5 text-end">
+											<button type="submit"<a class="btn btn-lg btn-primary mb-n7" href="#">Search Flight <i class="bi bi-arrow-right ps-3"></i></a>
+										</div>
+										</div>
+									</div>
+									<!-- multi-city trip END -->
+								</div>
+								<!-- Tab content END -->
+							</div>	
+						</form>
+					</div>
+					<!-- Tab content item END -->
+					
+					<!-- Tab content item START -->
+					<div class="tab-pane fade show" id="tab-1-1">
+						<form class="card shadow p-0">
+							<!-- Card header -->
+							<div class="card-header p-4">
+								<h5 class="mb-0"><i class="fa-solid fa-hotel fa-fw me-2"></i>Hotel Booking</h5>
+							</div>
+
+							<!-- Card body -->
+							<div class="card-body p-4 pt-0">
+								<div class="row g-4">
+									<!-- Location -->
+									<div class="col-md-3">
+										<div class="form-icon-input form-size-lg form-fs-lg">
+											<select class="form-select js-choice" data-search-enabled="true">
+												<option value="">Search hotel</option>
+												<option>San Jacinto, USA</option>
+												<option>North Dakota, Canada</option>
+												<option>West Virginia, Paris</option>
+											</select>
+											<span class="form-icon"><i class="bi bi-search fs-5"></i></span>
+										</div>
+									</div>
+									
+									<!-- Guest -->
+									<div class="col-lg-3">
+										<div class="form-icon-input form-fs-lg">
+											<div class="dropdown guest-selector me-2">
+												<input type="text" class="form-guest-selector form-control form-control-lg selection-result" placeholder="Select occupant" data-bs-auto-close="outside" data-bs-toggle="dropdown">
+											
+												<!-- dropdown items -->
+												<ul class="dropdown-menu guest-selector-dropdown">
+													<!-- Adult -->
+													<li class="d-flex justify-content-between">
+														<div>
+															<h6 class="mb-0">Adults</h6>
+															<small>Ages 13 or above</small>
+														</div>
 		
-                <!-- Leaving From -->
-                <div class="col-md-6 col-xl-3">
-                 <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
-                    <!-- Input field -->
-                    <label class="mb-1"><i class="bi bi-geo-alt me-2"></i>From</label>
-                    <select class="form-control search" name="round_trip_from">
-                      <option value="">Select location</option>
-                    </select>
-                  </div>
-                  
-                  <!-- Auto fill button -->
-				   <div class="btn-round-icon mt-3 mt-md-0">
-                    <button class="btn btn-white shadow btn-round mb-0"><i class="fa-solid fa-right-left"></i></button>
-                  </div>
-                   
-                </div>
+														<div class="hstack gap-1 align-items-center">
+															<button type="button" class="btn btn-link adult-remove p-0 mb-0"><i class="bi bi-dash-circle fs-5 fa-fw"></i></button>
+															<h6 class="guest-selector-count mb-0 adults">2</h6>
+															<button type="button" class="btn btn-link adult-add p-0 mb-0"><i class="bi bi-plus-circle fs-5 fa-fw"></i></button>
+														</div>
+													</li>
+		
+													<!-- Divider -->
+													<li class="dropdown-divider"></li>
+		
+													<!-- Child -->
+													<li class="d-flex justify-content-between">
+														<div>
+															<h6 class="mb-0">Child</h6>
+															<small>Ages 13 below</small>
+														</div>
+		
+														<div class="hstack gap-1 align-items-center">
+															<button type="button" class="btn btn-link child-remove p-0 mb-0" ><i class="bi bi-dash-circle fs-5 fa-fw"></i></button>
+															<h6 class="guest-selector-count mb-0 child">0</h6>
+															<button type="button" class="btn btn-link child-add p-0 mb-0" ><i class="bi bi-plus-circle fs-5 fa-fw"></i></button>
+														</div>
+													</li>
+		
+													<!-- Divider -->
+													<li class="dropdown-divider"></li>
+		
+													<!-- Rooms -->
+													<li class="d-flex justify-content-between">
+														<div>
+															<h6 class="mb-0">Rooms</h6>
+															<small>Max room 8</small>
+														</div>
+		
+														<div class="hstack gap-1 align-items-center">
+															<button type="button" class="btn btn-link room-remove p-0 mb-0" ><i class="bi bi-dash-circle fs-5 fa-fw"></i></button>
+															<h6 class="guest-selector-count mb-0 rooms">1</h6>
+															<button type="button" class="btn btn-link room-add p-0 mb-0" ><i class="bi bi-plus-circle fs-5 fa-fw"></i></button>
+														</div>
+													</li>
+												</ul>
+											</div>
+											<span class="form-icon"><i class="bi bi-people fs-5"></i></span>
+										</div>
+									</div>
 
-                <!-- Going To -->
-                <div class="col-md-6 col-xl-3">
-                  <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
-                    <!-- Input field -->
-                    <label class="mb-3"><i class="bi bi-send me-2"></i>To</label>
-                    <select class="form-control search" name="round_trip_to">
-                      <option value="">Select location</option>
-                    </select>
-                  </div>
-                </div>
+									<!-- Date -->
+									<div class="col-lg-3">
+										<div class="form-icon-input form-fs-lg">
+											<input type="text" class="form-control form-control-lg flatpickr" data-date-format="d/m/y" placeholder="Select check-in date">
+											<span class="form-icon"><i class="bi bi-calendar fs-5"></i></span>
+										</div>
+									</div>
 
-                <!-- Departure -->
-                <div class="col-md-6 col-xl-3">
-                  <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
-                    <label class="mb-1"><i class="bi bi-calendar me-2"></i>Departure</label>
-                    <input type="text" class="form-control flatpickr" data-date-format="d M Y" placeholder="Select date" name="round_trip_departure">
-                  </div>
-                </div>
+									<!-- Date -->
+									<div class="col-lg-3">
+										<div class="form-icon-input form-fs-lg">
+											<input type="text" class="form-control form-control-lg flatpickr" data-date-format="d/m/y" placeholder="Select check-out date">
+											<span class="form-icon"><i class="bi bi-calendar fs-5"></i></span>
+										</div>
+									</div>
 
-                <!-- Return -->
-                <div class="col-md-6 col-xl-3">
-                  <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
-                    <label class="mb-1"><i class="bi bi-calendar me-2"></i>Return</label>
-                    <input type="text" class="form-control flatpickr" data-date-format="d M Y" placeholder="Select date" name="round_trip_return">
-                  </div>
-                </div>
+								</div> <!-- Row END -->
 
-                <div class="col-12 text-end pt-0">
-                  <button type="submit" class="btn btn-primary">Search Now <i class="bi bi-arrow-right ps-3"></i></button>
-                </div>
-              </div>
-			  </form>
-            </div>
-            <!-- Round way tab END -->
-			
-			<!-- Multi-city -->
-			 <div class="tab-pane fade" id="pills-multi-city" role="tabpanel" aria-labelledby="pills-multi-city-tab">
-                <!-- Leaving From -->
-				<form name="multi_city" id="multi_city">
-				
-                <div class="input_fields_wrap">
-				
-					<div class="row g-4">
-					<!-- Leaving From -->
-					<div class="col-md-4 col-lg-4 position-relative">
-					  <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
-						<!-- Input field -->
-						<label class="mb-1"><i class="bi bi-geo-alt me-2"></i>From</label>
-						<select class="form-control search multi_city_input" name="multi_city_from0">
-						  <option value="">Select location</option>
-						</select>
-					  </div>
+								<!-- Button -->
+								<div class="col-6 text-end">
+											<a class="btn btn-lg btn-primary mb-n7" href="#">Search Flight <i class="bi bi-arrow-right ps-3"></i></a>
+								</div>
+							</div>
+						</form>
 					</div>
+					<!-- Tab content item END -->
 
-					<!-- Going To -->
-					<div class="col-md-4 col-lg-4">
-					  <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
-						<!-- Input field -->
-						<label class="mb-1"><i class="bi bi-send me-2"></i>To</label>
-						<select class="form-control search multi_city_input" name="multi_city_to0">
-						  <option value="">Select location</option>
-						</select>
-					  </div>
-					</div>
+					<!-- Tab content item START -->
+					<div class="tab-pane fade" id="tab-1-4">
+						<form class="card shadow p-0">
+							<!-- Card header -->
+							<div class="card-header d-sm-flex justify-content-between align-items-center p-4">
+								<!-- Title -->
+								<h5 class="mb-3 mb-sm-0"><i class="fa-solid fa-car fa-fw me-2"></i>Car Booking</h5>
 
-					<!-- Departure -->
-					<div class="col-lg-4">
-					  <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
-						<label class="mb-1"><i class="bi bi-calendar me-2"></i>Departure</label>
-						<input type="text" class="form-control flatpickr multi_city_input" data-date-format="d M Y" placeholder="Select date" name="multi_city_departure0">
-					  </div>
-					</div>
-				  </div>
-				  
-				</div>
-				
-				<div class="row py-2">
-					<div class="col-6">
-						<a class="btn btn-dark add_field_button" href="#">Add another flight <i class="fas fa-plus ms-2"></i></a>
-					</div>
+								<!-- Tabs -->
+								<ul class="nav nav-pills nav-pills-dark" id="pills-tab-2" role="tablist">
+									<li class="nav-item" role="presentation">
+										<button class="nav-link mb-0 rounded-start rounded-0 active" id="pills-one-way-2-tab" data-bs-toggle="pill" data-bs-target="#pills-one-way-2" type="button" role="tab" aria-selected="true">One Way</button>
+									</li>
+									<li class="nav-item" role="presentation">
+										<button class="nav-link mb-0 rounded-end rounded-0" id="pills-round-way-2-tab" data-bs-toggle="pill" data-bs-target="#pills-round-way-2" type="button" role="tab" aria-selected="false">Road Trip</button>
+									</li>
+								</ul>
+							</div>
 
-					<div class="col-6 text-end">
-						<button type="submit" class="btn btn-primary mb-n4">Search Now <i class="bi bi-arrow-right ps-3"></i></button>
+							<!-- Card body -->
+							<div class="card-body p-4 pt-0">
+								<!-- Tab content START -->
+								<div class="tab-content" id="pills-tabContent3">
+									<!-- One way tab START -->
+									<div class="tab-pane fade show active" id="pills-one-way-2" role="tabpanel" aria-labelledby="pills-one-way-2-tab">
+										<div class="row g-4">
+											<!-- Pickup -->
+											<div class="col-md-6 position-relative">
+												<div class="form-icon-input form-size-lg form-fs-lg">
+													<select class="form-select js-choice" data-search-enabled="true">
+														<option value="">Select pickup location</option>
+														<option>San Jacinto, USA</option>
+														<option>North Dakota, Canada</option>
+														<option>West Virginia, Paris</option>
+													</select>
+													<span class="form-icon"><i class="bi bi-geo-alt fs-5"></i></span>
+												</div>
+
+												<!-- Auto fill button -->
+												<div class="btn-flip-icon z-index-9">
+													<button class="btn btn-white shadow btn-round mb-0"><i class="fa-solid fa-right-left"></i></button>
+												</div>
+											</div>
+
+											<!-- Drop -->
+											<div class="col-md-6">
+												<div class="form-icon-input form-size-lg form-fs-lg">
+													<select class="form-select js-choice" data-search-enabled="true">
+														<option value="">Select drop location</option>
+														<option>San Jacinto, USA</option>
+														<option>North Dakota, Canada</option>
+														<option>West Virginia, Paris</option>
+													</select>
+													<span class="form-icon"><i class="bi bi-geo-alt fs-5"></i></span>
+												</div>
+											</div>
+
+											<!-- Pickup date -->
+											<div class="col-md-6">
+												<div class="form-icon-input form-fs-lg">
+													<input type="text" class="form-control form-control-lg flatpickr" data-date-format="d/M/Y" placeholder="Select pickup date">
+													<span class="form-icon"><i class="bi bi-calendar fs-5"></i></span>
+												</div>
+											</div>
+
+											<!-- Pickup time -->
+											<div class="col-md-6">
+												<div class="form-icon-input form-fs-lg">
+													<input type="text" class="form-control form-control-lg flatpickr" placeholder="Select pickup time" data-noCalendar="true" data-enableTime="true">
+													<span class="form-icon"><i class="bi bi-calendar fs-5"></i></span>
+												</div>
+											</div>
+										</div> <!-- Row END -->
+										<!-- Button -->
+										<div class="text-center pt-0">
+											<a class="btn btn-lg btn-primary mb-n7" href="#">Search Cabs <i class="bi bi-arrow-right ps-3"></i></a>
+										</div>
+									</div>
+									<!-- One way tab END -->
+
+									<!-- Round way tab START -->
+									<div class="tab-pane fade" id="pills-round-way-2" role="tabpanel" aria-labelledby="pills-round-way-2-tab">
+										<div class="row g-4">
+											<!-- Pickup -->
+											<div class="col-md-6 position-relative">
+												<div class="form-icon-input form-size-lg form-fs-lg">
+													<select class="form-select js-choice" data-search-enabled="true">
+														<option value="">Select pickup location</option>
+														<option>San Jacinto, USA</option>
+														<option>North Dakota, Canada</option>
+														<option>West Virginia, Paris</option>
+													</select>
+													<span class="form-icon"><i class="bi bi-geo-alt fs-5"></i></span>
+												</div>
+
+												<!-- Auto fill button -->
+												<div class="btn-flip-icon z-index-9">
+													<button class="btn btn-white shadow btn-round mb-0"><i class="fa-solid fa-right-left"></i></button>
+												</div>
+											</div>
+
+											<!-- Drop -->
+											<div class="col-md-6">
+												<div class="form-icon-input form-size-lg form-fs-lg">
+													<select class="form-select js-choice" data-search-enabled="true">
+														<option value="">Select drop location</option>
+														<option>San Jacinto, USA</option>
+														<option>North Dakota, Canada</option>
+														<option>West Virginia, Paris</option>
+													</select>
+													<span class="form-icon"><i class="bi bi-geo-alt fs-5"></i></span>
+												</div>
+											</div>
+
+											<!-- Pickup date -->
+											<div class="col-md-6 col-lg-3">
+												<div class="form-icon-input form-fs-lg">
+													<input type="text" class="form-control form-control-lg flatpickr" data-date-format="d/M/Y" placeholder="Select pickup date">
+													<span class="form-icon"><i class="bi bi-calendar fs-5"></i></span>
+												</div>
+											</div>
+
+											<!-- Pickup time -->
+											<div class="col-md-6 col-lg-3">
+												<div class="form-icon-input form-fs-lg">
+													<input type="text" class="form-control form-control-lg flatpickr" placeholder="Select pickup time" data-noCalendar="true" data-enableTime="true">
+													<span class="form-icon"><i class="bi bi-calendar fs-5"></i></span>
+												</div>
+											</div>
+
+											<!-- Drop date -->
+											<div class="col-md-6 col-lg-3">
+												<div class="form-icon-input form-fs-lg">
+													<input type="text" class="form-control form-control-lg flatpickr" data-date-format="d/M/Y" placeholder="Select return date">
+													<span class="form-icon"><i class="bi bi-calendar fs-5"></i></span>
+												</div>
+											</div>
+
+											<!-- Drop time -->
+											<div class="col-md-6 col-lg-3">
+												<div class="form-icon-input form-fs-lg">
+													<input type="text" class="form-control form-control-lg flatpickr" placeholder="Select return time" data-noCalendar="true" data-enableTime="true">
+													<span class="form-icon"><i class="bi bi-calendar fs-5"></i></span>
+												</div>
+											</div>
+										</div> <!-- Row END -->
+										<!-- Button -->
+										<div class="text-center pt-0">
+											<a class="btn btn-lg btn-primary mb-n7" href="#">Search cars <i class="bi bi-arrow-right ps-3"></i></a>
+										</div>
+									</div>
+									<!-- Round way tab END -->
+								</div>		
+							</div>
+						</form>
 					</div>
-				</div>
-			</form>
-			  
-				</div>
-			  
-            </div>
-            </div>
-			<!-- Multi-city END -->
-          </div>
-          <!-- Tab content END -->
-        </div>
-	</div>
-			<!-- Booking from END -->
+					<!-- Tab content item END -->
+
+				</div> 
+			</div>
+			<!-- Tab content END -->
 		</div>
 	</div>
+	<!-- Search END -->
 </section>
 <!-- =======================
 Main Banner END -->
 
 <!-- =======================
-Special offer START -->
-<section>
+Best deal START -->
+<section class="pb-2 pb-lg-5">
 	<div class="container">
+		<!-- Slider START -->
+		<div class="tiny-slider arrow-round arrow-blur arrow-hover">
+			<div class="tiny-slider-inner" data-autoplay="true" data-arrow="true" data-edge="2" data-dots="false" data-items-xl="3" data-items-lg="2" data-items-md="1">
+				<!-- Slider item -->
+				<div>
+					<div class="card border rounded-3 overflow-hidden">
+						<div class="row g-0 align-items-center">
+							<!-- Image -->
+							<div class="col-sm-6">
+								<img src="assets/images/offer/01.jpg" class="card-img rounded-0" alt="">
+							</div>
 
-		<!-- Recent Search START -->
-		<div class="row g-2 mt-6">
-			<!-- Title -->
-			<div class="col-lg-2">
-				<h4 class="mb-0">Recent Searches</h4>
-			</div>
-
-			<div class="col-lg-10">
-				<div class="hstack flex-wrap gap-3">
-					<!-- Search item -->			
-					<div class="alert bg-light fade show small px-3 py-1 mb-0" role="alert">
-						<span class="me-1">Taman Sari</span>
-						<button type="button" class="btn-close small p-2" data-bs-dismiss="alert" aria-label="Close"></button>
+							<!-- Title and content -->
+							<div class="col-sm-6">
+								<div class="card-body px-3">
+									<h6 class="card-title"><a href="offer-detail.html" class="stretched-link">Daily 50 Lucky Winners get a Free Stay</a></h6>
+									<p class="mb-0">Valid till: 15 Nov</p>
+								</div>
+							</div>
+						</div>
 					</div>
+				</div>
 
-					<!-- Search item -->			
-					<div class="alert bg-light fade show small px-3 py-1 mb-0" role="alert">
-						<span class="me-1">The Grand Palace</span>
-						<button type="button" class="btn-close small p-2" data-bs-dismiss="alert" aria-label="Close"></button>
-					</div>
-					
-					<!-- Search item -->			
-					<div class="alert bg-light fade show small px-3 py-1 mb-0" role="alert">
-						<span class="me-1">Great Barrier Reef</span>
-						<button type="button" class="btn-close small p-2" data-bs-dismiss="alert" aria-label="Close"></button>
-					</div>
+				<!-- Slider item -->
+				<div>
+					<div class="card border rounded-3 overflow-hidden">
+						<div class="row g-0 align-items-center">
+							<!-- Image -->
+							<div class="col-sm-6">
+								<img src="assets/images/offer/04.jpg" class="card-img rounded-0" alt="">
+							</div>
 
-					<!-- Search item -->			
-					<div class="alert bg-light fade show small px-3 py-1 mb-0" role="alert">
-						<span class="me-1">Argentine Patagonia</span>
-						<button type="button" class="btn-close small p-2" data-bs-dismiss="alert" aria-label="Close"></button>
+							<!-- Title and content -->
+							<div class="col-sm-6">
+								<div class="card-body px-3">
+									<h6 class="card-title"><a href="offer-detail.html" class="stretched-link">Up to 60% OFF</a></h6>
+									<p class="mb-0">On Hotel Bookings Online</p>
+								</div>
+							</div>
+						</div>
 					</div>
+				</div>
 
-					<!-- Search item -->			
-					<button type="button" class="btn btn-sm btn-primary-soft mb-0"> Clear all</button>
+				<!-- Slider item -->
+				<div>
+					<div class="card border rounded-3 overflow-hidden">
+						<div class="row g-0 align-items-center">
+							<!-- Image -->
+							<div class="col-sm-6">
+								<img src="assets/images/offer/03.jpg" class="card-img rounded-0" alt="">
+							</div>
+
+							<!-- Title and content -->
+							<div class="col-sm-6">
+								<div class="card-body px-3">
+									<h6 class="card-title"><a href="offer-detail.html" class="stretched-link">Book & Enjoy</a></h6>
+									<p class="mb-0">20% Off on the best available room rate</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slider item -->
+				<div>
+					<div class="card border rounded-3 overflow-hidden">
+						<div class="row g-0 align-items-center">
+							<!-- Image -->
+							<div class="col-sm-6">
+								<img src="assets/images/offer/02.jpg" class="card-img rounded-0" alt="">
+							</div>
+
+							<!-- Title and content -->
+							<div class="col-sm-6">
+								<div class="card-body px-3">
+									<h6 class="card-title"><a href="offer-detail.html" class="stretched-link">Hot Summer Nights</a></h6>
+									<p class="mb-0">Up to 3 nights free!</p>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-		<!-- Recent Search END -->
+		</div>	
+		<!-- Slider END -->
 	</div>
 </section>
 <!-- =======================
-Special offer END -->
+Best deal END -->
 
 <!-- =======================
 Popular Destinations START -->
@@ -1113,6 +1409,7 @@ Footer END -->
 <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Vendors -->
+<script src="assets/vendor/tiny-slider/tiny-slider.js"></script>
 <script src="assets/vendor/choices/js/choices.min.js"></script>
 <script src="assets/vendor/flatpickr/js/flatpickr.min.js"></script>
 

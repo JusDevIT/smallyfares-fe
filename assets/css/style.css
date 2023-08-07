@@ -199,6 +199,7 @@
 .spinner-wrapper {
 	
 	background-color: #fff;
+	background-image: url(assests/images/background-plane.jpg);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -210,6 +211,18 @@
 	align-items: center;
 	transition: all 0.9s;
 
+}
+
+.c-item {
+	height: 480px;
+	
+}
+
+.c-img {
+	height: 100%;
+	object-fit: cover;
+	filter: brightness(0.9);
+	
 }
 
 
@@ -788,7 +801,7 @@ progress {
 }
 @media (min-width: 1200px) {
   .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1140px;
+    max-width: 1240px;
   }
 }
 @media (min-width: 1400px) {
@@ -1055,7 +1068,7 @@ progress {
 
 .g-4,
 .gy-4 {
-  --bs-gutter-y: 0.6rem;
+  --bs-gutter-y: 0.9rem;
 }
 
 .g-5,
@@ -3941,7 +3954,7 @@ textarea.form-control-lg {
 
 .btn-lg, .btn-group-lg > .btn {
   --bs-btn-padding-y: 0.8rem;
-  --bs-btn-padding-x: 1.5rem;
+  --bs-btn-padding-x: 0.5rem;
   --bs-btn-font-size: 1rem;
   --bs-btn-border-radius: 1rem;
 }
@@ -9139,8 +9152,8 @@ textarea.form-control-lg {
 }
 
 .mx-3 {
-  margin-right: 1rem !important;
-  margin-left: 1rem !important;
+  margin-right: -11rem !important;
+  margin-left: 0rem !important;
 }
 
 .mx-4 {
@@ -9175,7 +9188,7 @@ textarea.form-control-lg {
 
 .mx-auto {
   margin-right: auto !important;
-  margin-left: auto !important;
+  margin-left: 10px;
 }
 
 .my-0 {
@@ -9204,8 +9217,8 @@ textarea.form-control-lg {
 }
 
 .my-5 {
-  margin-top: 3rem !important;
-  margin-bottom: 3rem !important;
+  margin-top: 0rem !important;
+  margin-bottom: 1rem !important;
 }
 
 .my-6 {
@@ -9338,7 +9351,7 @@ textarea.form-control-lg {
 }
 
 .mb-4 {
-  margin-bottom: 1.6rem !important;
+  margin-bottom: 0.1rem !important;
 }
 
 .mb-5 {
@@ -9406,7 +9419,7 @@ textarea.form-control-lg {
 }
 
 .ms-auto {
-  margin-left: auto !important;
+  margin-left: 10px;
 }
 
 .m-n1 {
@@ -9632,7 +9645,7 @@ textarea.form-control-lg {
 }
 
 .mb-n7 {
-  margin-bottom: -4rem !important;
+  margin-bottom: 0px;
 }
 
 .mb-n8 {
@@ -11662,7 +11675,7 @@ textarea.form-control-lg {
     padding-top: 1.6rem !important;
   }
   .pt-sm-5 {
-    padding-top: 3rem !important;
+    padding-top: 0rem !important;
   }
   .pt-sm-6 {
     padding-top: 3.5rem !important;
